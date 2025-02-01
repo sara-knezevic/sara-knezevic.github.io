@@ -1,0 +1,131 @@
+/* Custom styles */
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    color: #141414;
+    background-color: #EBEBEB;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .img-container {
+        margin: 1rem 0;
+    }
+}
+
+.resume-container {
+    background-color: #FC9E4F;
+    color: #EBEBEB;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+.navbar-custom {
+    background-color: #4A6670
+}
+
+/* Navigation links */
+.navbar-custom .nav-link {
+    color: #EBEBEB;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #FC9E4F;
+}
+
+.navbar-custom .nav-link.active {
+    color: #FC9E4F;
+}
+
+/* Brand name */
+.navbar-custom .navbar-brand {
+    color: #EBEBEB;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #FC9E4F;
+}
+
+/* Social media icons */
+.social-icon {
+    color: #EBEBEB;
+}
+
+.social-icon:hover {
+    color: #FC9E4F;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #4A6670;
+    border-color: #ABD8D7;
+    color: #FFFCE8;
+}
+
+.btn-custom:hover {
+    background-color: #ABD8D7;
+    border-color: #4A6670;
+}
+
+/* Text colors */
+h1, h2, h3, h4, h5, h6 {
+    color: #3F403F;
+}
+
+p {
+    color: #3F403F;
+}
+
+/* Vertical divider */
+.navbar-custom .vr {
+    color: #FFFCE8;
+}
+
+/* Accordion customization */
+.accordion-button {
+    color: #3F403F;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #ABD8D7;
+}
+
+.border-custom {
+    border-style: solid;
+    border-color: #FC9E4F;
+    border-radius: 5px;
+    border-width: 2px;
+}
