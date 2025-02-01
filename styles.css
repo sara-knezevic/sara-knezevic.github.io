@@ -1,25 +1,35 @@
-/* Custom styles */
+/* Colors */
+/*
+#171c17 - Black
+#efdbc7 - Beige
+#17d7bb - Turquoise
+#85af8e - Light greyish green
+#9fa584 - Yellowish grey
+#865a46 - Brown
+#e69f81 - Salmon
+#285f45 - Green
+#61c4a3 - Blueish green
+#585d4e - Brownish grey
+*/
+
 body {
     font-family: 'Libre Franklin', sans-serif;
-    color: #141414;
-    background-color: #EBEBEB;
-}
-
-.navbar {
-    margin-bottom: 20px;
+    color: #efdbc7;
+    background-color: #171c17;
 }
 
 .container {
     max-width: 1200px;
 }
 
+/* Profile picture */
 .img-container {
     position: relative;
     width: 100%;
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .img-container:after {
@@ -45,76 +55,86 @@ body {
     }
 }
 
+/* Navigation bar */
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-custom {
+    background-color: #285f45
+}
+
+/* Navigation links */
+.navbar-custom .nav-link {
+    color: #efdbc7;
+}
+
+.navbar-custom .nav-link:hover {
+    color: #e69f81;
+}
+
+.navbar-custom .nav-link.active {
+    color: #e69f81;
+}
+
+/* Brand name */
+.navbar-custom .navbar-brand {
+    color: #efdbc7;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #e69f81;
+}
+
+/* Social media icons */
+.social-icon {
+    color: #efdbc7;
+}
+
+.social-icon:hover {
+    color: #e69f81;
+}
+
+/* Buttons */
+.btn-custom {
+    background-color: #285f45;
+    border-color: #efdbc7;
+    color: #efdbc7;
+}
+
+.btn-custom:hover {
+    background-color: #efdbc7;
+    border-color: #285f45;
+    color: #285f45;
+}
+
 .resume-container {
-    background-color: #FC9E4F;
+    background-color: #285f45;
     color: #EBEBEB;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
 }
 
-.navbar-custom {
-    background-color: #4A6670
-}
-
-/* Navigation links */
-.navbar-custom .nav-link {
-    color: #EBEBEB;
-}
-
-.navbar-custom .nav-link:hover {
-    color: #FC9E4F;
-}
-
-.navbar-custom .nav-link.active {
-    color: #FC9E4F;
-}
-
-/* Brand name */
-.navbar-custom .navbar-brand {
-    color: #EBEBEB;
-}
-
-.navbar-custom .navbar-brand:hover {
-    color: #FC9E4F;
-}
-
-/* Social media icons */
-.social-icon {
-    color: #EBEBEB;
-}
-
-.social-icon:hover {
-    color: #FC9E4F;
-}
-
-/* Buttons */
-.btn-custom {
-    background-color: #4A6670;
-    border-color: #ABD8D7;
-    color: #FFFCE8;
-}
-
-.btn-custom:hover {
-    background-color: #ABD8D7;
-    border-color: #4A6670;
-}
-
 /* Text colors */
 h1, h2, h3, h4, h5, h6 {
-    color: #3F403F;
+    color: #efdbc7;
 }
 
 p {
-    color: #3F403F;
+    color: #efdbc7;
+}
+
+a {
+    color: #85af8e;
 }
 
 /* Vertical divider */
 .navbar-custom .vr {
-    color: #FFFCE8;
+    color: #e69f81;
 }
 
-/* Accordion customization */
+/* Home page */
 .accordion-button {
     color: #3F403F;
 }
@@ -123,9 +143,25 @@ p {
     background-color: #ABD8D7;
 }
 
+/* Projects page */
 .border-custom {
     border-style: solid;
-    border-color: #FC9E4F;
+    border-color: #285f45;
     border-radius: 5px;
     border-width: 2px;
+}
+
+.project-custom {
+    color: #3F403F;
+    background-color: #9fa584;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.project-custom h3 {
+    color: #3F403F;
+}
+
+.project-custom p {
+    color: #3F403F;
 }
