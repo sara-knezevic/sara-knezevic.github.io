@@ -258,22 +258,23 @@ a {
 .modal-content {
     background-color: var(--color-black);
     color: var(--color-beige);
+    border-radius: 15px; /* Add rounded corners */
+    overflow: hidden; /* Ensure content doesn't overflow */
 }
 
 .modal-dialog.modal-xl {
-    max-width: 95vw;
-    height: 95vh;
-    margin: 1vh auto;
-    /* center content vertically */
+    max-width: 90vw; /* Reduce max-width to ensure padding */
+    height: auto; /* Let height adjust based on content */
+    margin: 2vh auto; /* Add vertical margin for spacing */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 20px; /* Add padding around the modal */
 }
 
 .modal-body img {
     max-width: 100%;
-    height: 400px;
+    height: auto; /* Ensure image height adjusts */
     object-fit: contain;
     border-radius: 8px;
     margin: 0;
@@ -285,16 +286,9 @@ a {
     border-color: var(--color-green);
 }
 
-.modal-xl {
-    max-width: 70vw;
-}
-
 .modal-body {
     padding: 2rem;
-}
-
-.modal-project-details {
-    padding: 0 5rem;
+    overflow-y: auto; /* Add scroll if content overflows */
 }
 
 .custom-close {
@@ -391,8 +385,9 @@ a {
     }
 
     .modal-dialog.modal-xl {
-        /* align to top */
-        justify-content: flex-start;
+        max-width: 95vw; /* Increase width for smaller screens */
+        margin: 1vh auto; /* Reduce margin for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
     }
     
     .modal-xl {
@@ -402,7 +397,15 @@ a {
     }
 
     .modal-body {
-        padding: 1rem;
+        padding: 1rem; /* Reduce padding for smaller screens */
+    }
+
+    .modal-body .row {
+        flex-direction: column; /* Stack columns vertically on mobile */
+    }
+
+    .modal-body .col-md-6 {
+        margin-bottom: 1.5rem; /* Add spacing between stacked columns */
     }
 
     .modal-project-details {
@@ -426,8 +429,8 @@ a {
     }
 
     .btn-custom-links {
-        width: 90%;
-        margin-bottom: 0.5rem;
+        width: 100%; /* Make buttons full width on mobile */
+        margin-bottom: 0.5rem; /* Add spacing between buttons */
         background-color: var(--color-green);
         border-color: var(--color-green);
         color: var(--color-beige);
