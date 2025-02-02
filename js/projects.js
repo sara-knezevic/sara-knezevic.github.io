@@ -40,7 +40,7 @@ function createProjectModal(project) {
                                 <!-- Image Column -->
                                 <div class="col-md-6 p-0">
                                     <div class="image-container">
-                                        <img src="${project.image}" class="img-fluid w-100" alt="${project.title}" style="object-fit: fit; height: auto;">
+                                        <img src="${project.image}" class="img-fluid" alt="${project.title}" style="object-fit: fit; height: auto;">
                                     </div>
                                     <div class="mt-3 px-3"> <!-- Add padding for content below the image -->
                                         <h5 class="mb-3">Technologies Used:</h5>

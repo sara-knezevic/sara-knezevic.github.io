@@ -281,14 +281,13 @@ a {
 @media (max-width: 768px) {
     .img-container {
         margin: 1rem 0;
-        /* fit whole image */
-        width: 100%;
+        width: auto;
     }
     
     .modal-xl {
-        max-width: 90vw;
-        /* margin: 0 auto; */
-        /* padding-left: 1rem; */
+        max-width: auto;
+        margin: 0 auto;
+        padding-left: 1rem;
         padding-right: 1rem;
     }
     
@@ -330,7 +329,7 @@ a {
 
     /* Adjust button width on mobile */
     .btn-custom-links {
-        width: 100%;
+        width: 90%;
         margin-bottom: 0.5rem;
         background-color: var(--color-green);
         border-color: var(--color-green);
