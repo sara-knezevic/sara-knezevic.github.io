@@ -221,6 +221,11 @@ a {
     max-width: 95vw;
     height: 95vh;
     margin: 1vh auto;
+    /* center content vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-body img {
@@ -292,6 +297,11 @@ a {
         width: auto;
     }
 
+    .modal-dialog.modal-xl {
+        /* align to top */
+        justify-content: flex-start;
+    }
+    
     .modal-xl {
         max-width: auto;
         margin: 0 auto;

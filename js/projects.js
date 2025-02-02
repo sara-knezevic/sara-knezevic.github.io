@@ -28,7 +28,7 @@ function createProjectCard(project) {
 function createProjectModal(project) {
     return `
         <div class="modal fade" id="${project.id}Modal" tabindex="-1">
-            <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">${project.title}</h4>
