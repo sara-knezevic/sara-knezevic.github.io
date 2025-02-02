@@ -86,7 +86,7 @@ function createAdditionalItem(section, index) {
             <ul>
                 ${section.content.map(item => `
                     <li><strong>${item.title}</strong><br>
-                        ${item.details.map(detail => `${detail}`).join('')}
+                        ${item.details.map(detail => `${detail}<br>`).join('')}
                     </li>
                 `).join('')}
             </ul>`;
@@ -105,7 +105,7 @@ function createAdditionalItem(section, index) {
         descriptionHtml = `
             <ul>
                 ${section.content.map(item => `
-                    <li><strong>${item.title}</strong> ${item.description} (${item.period})</li>
+                    <li><strong>${item.title}</strong> ${item.description}</li>
                 `).join('')}
             </ul>`;
     }
