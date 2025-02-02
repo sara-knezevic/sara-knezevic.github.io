@@ -1,32 +1,34 @@
-/* Colors */
-/*
-#171c17 - Black
-#efdbc7 - Beige
-#17d7bb - Turquoise
-#85af8e - Light greyish green
-#9fa584 - Yellowish grey
-#865a46 - Brown
-#e69f81 - Salmon
-#285f45 - Green
-#61c4a3 - Blueish green
-#585d4e - Brownish grey
-*/
+/* Color Variables */
+:root {
+    --color-black: #171c17;
+    --color-beige: #efdbc7;
+    --color-turquoise: #17d7bb;
+    --color-light-green: #85af8e;
+    --color-yellow-grey: #9fa584;
+    --color-brown: #865a46;
+    --color-salmon: #e69f81;
+    --color-green: #285f45;
+    --color-blue-green: #61c4a3;
+    --color-brown-grey: #585d4e;
+    --color-text-dark: #3F403F;
+}
 
+/* Base Styles */
 body {
     font-family: 'Libre Franklin', sans-serif;
-    color: #efdbc7;
-    background-color: #171c17;
+    color: var(--color-beige);
+    background-color: var(--color-black);
 }
 
 a {
-    color: #e69f81;
+    color: var(--color-salmon);
 }
 
 .container {
     max-width: 1200px;
 }
 
-/* Profile picture */
+/* Profile Picture */
 .img-container {
     position: relative;
     width: 100%;
@@ -36,13 +38,10 @@ a {
     align-items: flex-start;
 }
 
-.img-container:after {
+.img-container::after {
     content: "";
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset: 0;
     z-index: 99;
 }
 
@@ -53,95 +52,90 @@ a {
     margin: 0;
 }
 
-@media (max-width: 768px) {
-    .img-container {
-        margin: 1rem 0;
-    }
-}
-
-/* Navigation bar */
+/* Navigation */
 .navbar {
     margin-bottom: 20px;
 }
 
 .navbar-custom {
-    background-color: #285f45
+    background-color: var(--color-green);
 }
 
-/* Navigation links */
 .navbar-custom .nav-link {
-    color: #efdbc7;
+    color: var(--color-beige);
 }
 
-.navbar-custom .nav-link:hover {
-    color: #e69f81;
-}
-
+.navbar-custom .nav-link:hover,
 .navbar-custom .nav-link.active {
-    color: #e69f81;
+    color: var(--color-salmon);
 }
 
-/* Brand name */
 .navbar-custom .navbar-brand {
-    color: #efdbc7;
+    color: var(--color-beige);
 }
 
 .navbar-custom .navbar-brand:hover {
-    color: #e69f81;
+    color: var(--color-salmon);
 }
 
-/* Social media icons */
+.navbar-custom .vr {
+    color: var(--color-salmon);
+}
+
+/* Social Media Icons */
 .social-icon {
-    color: #efdbc7;
+    color: var(--color-beige);
 }
 
 .social-icon:hover {
-    color: #e69f81;
+    color: var(--color-salmon);
 }
 
 /* Buttons */
 .btn-custom {
-    background-color: #285f45;
-    border-color: #efdbc7;
-    color: #efdbc7;
+    background-color: var(--color-green);
+    border-color: var(--color-beige);
+    color: var(--color-beige);
+    transition: all 0.2s ease;
 }
 
 .btn-custom:hover {
-    background-color: #efdbc7;
-    border-color: #285f45;
-    color: #285f45;
+    background-color: var(--color-beige);
+    border-color: var(--color-green);
+    color: var(--color-green);
 }
 
+.btn-custom.active {
+    background-color: var(--color-beige);
+    color: var(--color-green);
+    border-color: var(--color-green);
+}
+
+/* Resume Section */
 .resume-container {
-    background-color: #285f45;
+    background-color: var(--color-green);
     color: #EBEBEB;
     padding: 10px;
     margin-top: 10px;
     border-radius: 5px;
 }
 
-/* Vertical divider */
-.navbar-custom .vr {
-    color: #e69f81;
-}
-
-/* Home page */
+/* Accordion Styles */
 .accordion-button {
-    color: #3F403F;
+    color: var(--color-text-dark);
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #85af8e;
-    color: #3F403F;  /* Keep text color consistent when open */
-    box-shadow: none;  /* Remove the outline/shadow */
+    background-color: var(--color-light-green);
+    color: var(--color-text-dark);
+    box-shadow: none;
 }
 
 .accordion-button:focus {
-    box-shadow: none;  /* Remove focus outline */
-    border-color: rgba(0,0,0,.125);  /* Reset border color */
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.125);
 }
 
-/* Remove blue color from arrow icon */
 .accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233F403F'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
 }
@@ -151,128 +145,218 @@ a {
     line-height: 1.2;
 }
 
-/* Projects page */
+/* Project Cards */
 .card-img-top {
+    width: 100%;
     height: 250px;
     object-fit: cover;
-    border-bottom: 2px solid #285f45;
-  }
-  
-  .card-body {
-    padding: 1.5rem; /* Increased padding inside card body */
-  }
-  
-  .project-card {
-    transition: transform 0.2s;
-    height: 100%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .tag {
-    display: inline-block;
-    margin-bottom: 0.5rem; /* Adds space below tags if they wrap */
-  }
-  
-  /* Optional: Add some hover effects */
-  .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
+    border-bottom: 2px solid var(--color-green);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
 
 .project-card {
-    transition: transform 0.2s;
     height: 100%;
-  }
-  .project-card:hover {
+    transition: transform 0.2s, opacity 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    color: var(--color-text-dark);
+    background-color: var(--color-beige);
+}
+
+.project-card:hover {
     transform: translateY(-5px);
-  }
-  .tag {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-custom-project {
+    background-color: var(--color-salmon);
+    border-color: var(--color-green);
+    color: var(--color-green);
+    transition: all 0.2s ease;
+}
+
+.btn-custom-project:hover {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+    color: var(--color-salmon);
+}
+
+.tag {
     font-size: 0.8rem;
     padding: 0.2rem 0.6rem;
     margin: 0.2rem;
-    border-radius: 15px;
-    background-color: #285f45;
-    color: #efdbc7;
-  }
-  .modal-content {
-    background-color: #171c17;
-    color: #efdbc7;
-  }
-  .modal-header {
-    border-bottom: 1px solid #285f45;
-  }
-  .modal-footer {
-    border-top: 1px solid #285f45;
-  }
-  
-  .modal-xl {
-    max-width: 70vw;
-  }
-  
-  .modal-body {
-    padding: 2rem;
-  }
-  
-  .modal-project-image {
-    width: 100%;
+    border-radius: 20px;
+    background-color: var(--color-green);
+    color: var(--color-beige);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--color-black);
+    color: var(--color-beige);
+}
+
+.modal-dialog.modal-xl {
+    max-width: 95vw;
+    height: 95vh;
+    margin: 1vh auto;
+}
+
+.modal-body img {
+    max-width: 100%;
     height: 400px;
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 8px;
-  }
-  
-  .modal-project-details {
+    margin: 0;
+    display: block;
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--color-green);
+}
+
+.modal-footer {
+    border-top: 1px solid var(--color-green);
+}
+
+.modal-xl {
+    max-width: 70vw;
+}
+
+.modal-body {
+    padding: 2rem;
+}
+
+.modal-project-details {
     padding: 0 1.5rem;
-  }
-  
-  @media (max-width: 768px) {
-    .modal-xl {
-      max-width: 95vw;
-    }
-    .modal-body {
-      padding: 1rem;
-    }
-    .modal-project-details {
-      padding: 1rem 0 0 0;
-    }
-  }
+}
 
-  .project-card {
-    transition: transform 0.2s, opacity 0.3s ease-in-out;
-    opacity: 1;
-  }
-  
-  .btn-custom.active {
-    background-color: #efdbc7;
-    color: #285f45;
-    border-color: #285f45;
-  }
+.custom-close {
+    background: var(--color-beige) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><path d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/></svg>") center/1em auto no-repeat;
+    color: var(--color-beige);
+    font-size: 1.5rem;
+    padding: 0.25rem;
+}
 
-/* Blog */
+.custom-close:hover {
+    opacity: 0.75;
+}
+
+/* Blog Cards */
 .card {
     border: none;
     transition: transform 0.2s;
 }
-  
+
 .card:hover {
     transform: translateY(-3px);
 }
 
 .card-header {
-    background-color: #85af8e;
+    background-color: var(--color-light-green);
     color: white;
     font-weight: 500;
 }
 
 .page-link {
-    color: #3F403F;
+    color: var(--color-text-dark);
 }
 
 .page-item.active .page-link {
-    background-color: #85af8e;
-    border-color: #85af8e;
+    background-color: var(--color-light-green);
+    border-color: var(--color-light-green);
 }
 
-.card-img-top {
-    height: 250px;
-    object-fit: cover;
+/* Media Queries */
+@media (max-width: 768px) {
+    .img-container {
+        margin: 1rem 0;
+        /* fit whole image */
+        width: 100%;
+    }
+    
+    .modal-xl {
+        max-width: 90vw;
+        /* margin: 0 auto; */
+        /* padding-left: 1rem; */
+        padding-right: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-project-details {
+        padding: 1rem 0 0 0;
+    }
+        
+    .card-body {
+        padding-top: 0; /* Remove padding above the title */
+    }
+
+    .title-tags-container {
+        margin-top: 0; /* Remove margin above the title */
+    }
+
+    /* Reduce padding in the modal body */
+    .modal-body {
+        padding: 1rem;
+    }
+
+    /* Stack columns vertically on mobile */
+    .modal-body .row {
+        flex-direction: column;
+    }
+
+    /* Add spacing between columns on mobile */
+    .modal-body .col-md-6 {
+        margin-bottom: 1.5rem;
+    }
+
+    /* Reduce font size for modal title on mobile */
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    /* Adjust button width on mobile */
+    .btn-custom-links {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        background-color: var(--color-green);
+        border-color: var(--color-green);
+        color: var(--color-beige);
+        transition: all 0.2s ease;
+    }
+
+    .btn-custom-links:hover {
+        background-color: var(--color-salmon);
+        border-color: var(--color-green);
+        color: var(--color-green);
+    }
+
+    .project-card .card-body {
+        padding: 1rem; /* Reduce padding on mobile */
+    }
+
+    .project-card .card-title {
+        font-size: 1.1rem; /* Adjust title size for mobile */
+    }
+
+    .project-card .tags {
+        margin-bottom: 0.5rem; /* Reduce spacing below tags */
+    }
+
+    .project-card .card-text {
+        font-size: 0.9rem; /* Adjust description size for mobile */
+    }
 }

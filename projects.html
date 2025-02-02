@@ -4,21 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects - Sara Knežević</title>
+  
+  <!-- External Resources -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation Bar -->
   <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container">
-      <!-- Left side with name and socials -->
       <div class="d-flex align-items-center">
         <a class="navbar-brand me-4" href="index.html">Sara Knežević</a>
-        <!-- Social Media Icons -->
         <div class="d-flex">
           <a href="https://www.linkedin.com/in/sara-knezevic/" target="_blank" class="me-3 social-icon">
             <i class="bi bi-linkedin fs-5"></i>
@@ -28,40 +26,29 @@
           </a>
         </div>
       </div>
-  
-      <!-- Mobile Toggle Button -->
-      <button class="navbar-toggler btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <button class="navbar-toggler btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
-  
-      <!-- Navigation Items with divider -->
+
       <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Vertical divider visible only on desktop -->
         <div class="vr d-none d-lg-block text-white mx-4"></div>
-        
-        <!-- Navigation Links -->
         <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Projects Page Content -->
-  <div class="container my-5">
+  <!-- Main Content -->
+  <div class="container my-2"></div>
     <h1 class="text-center mb-3">Projects</h1>
     
-    <!-- Project Filter -->
+    <!-- Filter Buttons -->
     <div class="d-flex justify-content-center mb-4">
-      <div class="btn-group" role="group">
+      <div class="btn-group">
         <button type="button" class="btn btn-custom active" data-filter="all">All</button>
         <button type="button" class="btn btn-custom" data-filter="ai">AI</button>
         <button type="button" class="btn btn-custom" data-filter="game">Games</button>
@@ -70,471 +57,13 @@
     </div>
 
     <!-- Projects Grid -->
-<div class="row g-5">
-  <!-- Project 1 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project1.jpg" class="card-img-top" alt="Air Pollution Filter">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Air Pollution Digital Image Filter</h5>
-        <div class="mb-3">
-          <span class="tag">Python</span>
-          <span class="tag">Image Processing</span>
-          <span class="tag">AI</span>
-        </div>
-        <p class="card-text mb-4">A digital image filter that simulates the visual effects of air pollution on photographs, helping visualize environmental impact.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project1Modal">
-          Learn More
-        </button>
-      </div>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 projects-grid px-4 mb-5">
+      <!-- Content populated through projects.js -->
     </div>
   </div>
 
-  <!-- Project 2 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project2.jpg" class="card-img-top" alt="SDG Quiz">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Sustainable Development Goals Quiz</h5>
-        <div class="mb-3">
-          <span class="tag">Web</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Education</span>
-        </div>
-        <p class="card-text mb-4">An interactive online quiz platform focused on teaching users about UN's Sustainable Development Goals.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project2Modal">
-          Learn More
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 3 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project3.jpg" class="card-img-top" alt="Connect Four AI">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Connect-four AI Opponent</h5>
-        <div class="mb-3">
-          <span class="tag">AI</span>
-          <span class="tag">Python</span>
-          <span class="tag">Game</span>
-        </div>
-        <p class="card-text mb-4">An intelligent AI opponent for the classic Connect Four game, implementing advanced game theory algorithms.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project3Modal">
-          Learn More
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 4 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project4.jpg" class="card-img-top" alt="Robot">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Autonomous Obstacle-Avoiding Robot</h5>
-        <div class="mb-3">
-          <span class="tag">Robotics</span>
-          <span class="tag">Arduino</span>
-          <span class="tag">AI</span>
-        </div>
-        <p class="card-text mb-4">A self-navigating robot that uses sensors and AI algorithms to detect and avoid obstacles in real-time.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project4Modal">
-          Learn More
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 5 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project5.jpg" class="card-img-top" alt="Decision Game">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Risky Decision Making Game</h5>
-        <div class="mb-3">
-          <span class="tag">Game</span>
-          <span class="tag">Psychology</span>
-          <span class="tag">Web</span>
-        </div>
-        <p class="card-text mb-4">An interactive game exploring risk assessment and decision-making processes in various scenarios.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project5Modal">
-          Learn More
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Project 6 -->
-  <div class="col-md-6">
-    <div class="project-card border-custom h-100">
-      <img src="assets/project6.jpg" class="card-img-top" alt="Brick Breaker">
-      <div class="card-body project-custom">
-        <h5 class="card-title mb-4">Multiplayer Brick Breaker</h5>
-        <div class="mb-3">
-          <span class="tag">Game</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Web</span>
-        </div>
-        <p class="card-text mb-4">A modern multiplayer version of the classic Brick Breaker game with real-time competition features.</p>
-        <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#project6Modal">
-          Learn More
-        </button>
-      </div>
-    </div>
-  </div>
-</div>
-  </div>
-
-  <!-- Project 1 Modal -->
-<div class="modal fade" id="project1Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Air Pollution Digital Image Filter</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project1.jpg" class="modal-project-image" alt="Project 1">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">Python</span>
-                <span class="tag">OpenCV</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">Image Processing</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">Detailed description of the air pollution filter project, including its purpose, implementation details, and impact. This can be a longer description that really dives into the technical aspects and challenges of the project.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Real-time image processing with advanced filtering algorithms</li>
-              <li>Multiple pollution levels with customizable parameters</li>
-              <li>Batch processing capabilities for multiple images</li>
-              <li>Performance optimization for large-scale image processing</li>
-              <li>Detailed analysis and visualization of pollution effects</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">Explain the significance of your project, its real-world applications, and any notable achievements or recognition it has received.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Project 2 Modal -->
-<div class="modal fade" id="project2Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Sustainable Development Goals Quiz</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project2.jpg" class="modal-project-image" alt="Project 2">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">JavaScript</span>
-                <span class="tag">React</span>
-                <span class="tag">Bootstrap</span>
-                <span class="tag">Firebase</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">An interactive educational platform designed to raise awareness about the UN's Sustainable Development Goals through engaging quizzes and challenges. The platform adapts to user knowledge levels and provides detailed feedback.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Adaptive difficulty based on user performance</li>
-              <li>Interactive learning modules for each SDG</li>
-              <li>Progress tracking and achievements system</li>
-              <li>Multi-language support for global accessibility</li>
-              <li>Real-time leaderboards and social features</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">This educational tool has helped thousands of users better understand sustainable development principles and their role in achieving these global goals.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Project 3 Modal -->
-<div class="modal fade" id="project3Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Connect-four AI Opponent</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project3.jpg" class="modal-project-image" alt="Project 3">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">Python</span>
-                <span class="tag">TensorFlow</span>
-                <span class="tag">Minimax</span>
-                <span class="tag">PyGame</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">An intelligent AI system that plays Connect Four using a combination of minimax algorithm and machine learning. The AI adapts its strategy based on the player's skill level and playing style.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Advanced AI using minimax with alpha-beta pruning</li>
-              <li>Multiple difficulty levels for different player skills</li>
-              <li>Learning capability through reinforcement learning</li>
-              <li>Interactive GUI with move suggestions</li>
-              <li>Game analysis and strategy explanation</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">This project demonstrates practical applications of AI in game theory and has been used as an educational tool for teaching strategic thinking.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Project 4 Modal -->
-<div class="modal fade" id="project4Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Autonomous Obstacle-Avoiding Robot</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project4.jpg" class="modal-project-image" alt="Project 4">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">Arduino</span>
-                <span class="tag">C++</span>
-                <span class="tag">Sensors</span>
-                <span class="tag">3D Printing</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">A self-navigating robot that uses multiple sensors and advanced algorithms to detect and avoid obstacles in real-time. The robot creates and updates its environmental map while navigating.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Real-time obstacle detection and avoidance</li>
-              <li>Dynamic path planning algorithms</li>
-              <li>Multiple sensor integration (ultrasonic, IR, camera)</li>
-              <li>3D printed chassis for optimal sensor placement</li>
-              <li>Wireless control and monitoring capabilities</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">This project demonstrates practical applications of robotics and autonomous navigation, with potential applications in automated delivery systems and industrial automation.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Project 5 Modal -->
-<div class="modal fade" id="project5Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Risky Decision Making Game</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project5.jpg" class="modal-project-image" alt="Project 5">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">JavaScript</span>
-                <span class="tag">Vue.js</span>
-                <span class="tag">D3.js</span>
-                <span class="tag">MongoDB</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">An interactive game designed to study decision-making processes in risky situations. Players face various scenarios where they must balance potential rewards against risks, with real-time analysis of their decision patterns.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Dynamic scenario generation based on player choices</li>
-              <li>Real-time decision pattern analysis</li>
-              <li>Visual representation of risk/reward ratios</li>
-              <li>Detailed performance analytics and insights</li>
-              <li>Customizable difficulty levels and scenarios</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">This project has contributed to research in behavioral economics and decision-making psychology, providing insights into risk assessment patterns.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Project 6 Modal -->
-<div class="modal fade" id="project6Modal" tabindex="-1">
-  <div class="modal-dialog modal-xl">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Multiplayer Brick Breaker</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-lg-7">
-            <img src="assets/project6.jpg" class="modal-project-image" alt="Project 6">
-            <div>
-              <h5 class="my-3">Technologies Used:</h5>
-              <div class="mb-4">
-                <span class="tag">JavaScript</span>
-                <span class="tag">WebSocket</span>
-                <span class="tag">Canvas API</span>
-                <span class="tag">Node.js</span>
-              </div>
-              <div class="d-flex gap-3">
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-github me-2"></i>View Source
-                </a>
-                <a href="#" class="btn btn-custom">
-                  <i class="bi bi-link-45deg me-2"></i>Live Demo
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-5 modal-project-details">
-            <h5 class="mb-3">Project Description:</h5>
-            <p class="mb-4">A modern multiplayer version of the classic Brick Breaker game, featuring real-time competition and various power-ups. Players can compete head-to-head or collaborate in team modes.</p>
-            <h5 class="mb-3">Key Features:</h5>
-            <ul class="mb-4">
-              <li>Real-time multiplayer functionality</li>
-              <li>Multiple game modes (VS, Co-op, Tournament)</li>
-              <li>Dynamic power-up system</li>
-              <li>Global leaderboard and achievements</li>
-              <li>Cross-platform compatibility</li>
-            </ul>
-            <h5 class="mb-3">Project Impact:</h5>
-            <p class="mb-4">This modern take on a classic game demonstrates advanced web technologies while providing an engaging multiplayer experience that builds community.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  
-  <!-- Add filter functionality -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('[data-filter]');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-      button.addEventListener('click', function() {
-        const filter = this.getAttribute('data-filter');
-        
-        // Remove active class from all buttons
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        // Show all projects if "All" is selected
-        if (filter === 'all') {
-          projectCards.forEach(card => {
-            card.closest('.col-md-6').style.display = 'block';
-            // Optional: Add animation
-            setTimeout(() => {
-              card.style.opacity = '1';
-            }, 100);
-          });
-          return;
-        }
-        
-        // Filter projects based on tags
-        projectCards.forEach(card => {
-          const cardTags = Array.from(card.querySelectorAll('.tag'))
-            .map(tag => tag.textContent.toLowerCase());
-          const parentColumn = card.closest('.col-md-6');
-          
-          if (cardTags.includes(filter.toLowerCase())) {
-            parentColumn.style.display = 'block';
-            // Optional: Add animation
-            setTimeout(() => {
-              card.style.opacity = '1';
-            }, 100);
-          } else {
-            parentColumn.style.display = 'none';
-            card.style.opacity = '0';
-          }
-        });
-      });
-    });
-  });
-  </script>
+  <script src="js/projects-data.js"></script>
+  <script src="js/projects.js"></script>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
