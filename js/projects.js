@@ -49,10 +49,10 @@ function createProjectModal(project) {
                                         </div>
                                         <!-- Buttons -->
                                         <div class="d-flex flex-column flex-md-row gap-3">
-                                            <a href="${project.links.github}" class="btn btn-custom btn-sm ${project.links.github === '#' ? 'disabled' : ''}">
+                                            <a href="${project.links.github}" class="btn btn-custom btn-sm ${project.links.github === '#' ? 'disabled' : ''}" target="_blank">
                                                 <i class="bi bi-github me-2"></i>View Source
                                             </a>
-                                            <a href="${project.links.demo}" class="btn btn-custom btn-sm ${project.links.demo === '#' ? 'disabled' : ''}">
+                                            <a href="${project.links.demo}" class="btn btn-custom btn-sm ${project.links.demo === '#' ? 'disabled' : ''}" target="_blank">
                                                 <i class="bi bi-link-45deg me-2"></i>Live Demo
                                             </a>
                                         </div>
