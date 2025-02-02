@@ -16,7 +16,7 @@ function createProjectCard(project) {
                 </div>
                 <!-- Footer with button -->
                 <div class="card-footer mt-auto px-2">
-                    <button class="btn btn-custom-project w-100 mb-4" data-bs-toggle="modal" data-bs-target="#${project.id}Modal">
+                    <button class="btn btn-custom w-100 mb-4" data-bs-toggle="modal" data-bs-target="#${project.id}Modal">
                         Learn More
                     </button>
                 </div>
@@ -28,7 +28,7 @@ function createProjectCard(project) {
 function createProjectModal(project) {
     return `
         <div class="modal fade" id="${project.id}Modal" tabindex="-1">
-            <div class="modal-dialog modal-xl">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h4 class="modal-title">${project.title}</h4>
@@ -49,10 +49,10 @@ function createProjectModal(project) {
                                         </div>
                                         <!-- Buttons -->
                                         <div class="d-flex flex-column flex-md-row gap-3">
-                                            <a href="${project.links.github}" class="btn btn-custom btn-sm">
+                                            <a href="${project.links.github}" class="btn btn-custom btn-sm ${project.links.github === '#' ? 'disabled' : ''}">
                                                 <i class="bi bi-github me-2"></i>View Source
                                             </a>
-                                            <a href="${project.links.demo}" class="btn btn-custom btn-sm">
+                                            <a href="${project.links.demo}" class="btn btn-custom btn-sm ${project.links.demo === '#' ? 'disabled' : ''}">
                                                 <i class="bi bi-link-45deg me-2"></i>Live Demo
                                             </a>
                                         </div>
@@ -91,10 +91,25 @@ function populateProjects() {
     });
 }
 
-// Preserve the existing filter functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Populate projects first
     populateProjects();
+
+    const uniqueTags = new Set();
+    projectsData.projects.forEach(project => {
+        project.tags.forEach(tag => uniqueTags.add(tag.toLowerCase()));
+    });
+
+    // Generate filter buttons
+    const filterButtonsContainer = document.getElementById('filter-buttons');
+    uniqueTags.forEach(tag => {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'btn btn-custom';
+        button.setAttribute('data-filter', tag);
+        button.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter
+        filterButtonsContainer.appendChild(button);
+    });
 
     // Then set up filters
     const filterButtons = document.querySelectorAll('[data-filter]');

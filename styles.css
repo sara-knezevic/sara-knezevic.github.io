@@ -53,33 +53,39 @@ a {
 }
 
 /* Navigation */
-.navbar {
+.navbar-custom {
+    background-color: var(--color-green);
     margin-bottom: 20px;
 }
 
-.navbar-custom {
-    background-color: var(--color-green);
-}
-
-.navbar-custom .nav-link {
-    color: var(--color-beige);
-}
-
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-    color: var(--color-salmon);
-}
-
+.navbar-custom .nav-link,
 .navbar-custom .navbar-brand {
     color: var(--color-beige);
 }
 
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active,
 .navbar-custom .navbar-brand:hover {
     color: var(--color-salmon);
 }
 
-.navbar-custom .vr {
-    color: var(--color-salmon);
+.navbar-toggler {
+    width: 47px;
+    height: 34px;
+    background-color: var(--color-green);
+    border: none;
+}
+
+.navbar-toggler .line {
+    float: left;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-beige);
+    margin-bottom: 5px;
+}
+
+.navbar-toggler:active {
+    border-color: var(--color-beige);
 }
 
 /* Social Media Icons */
@@ -99,16 +105,22 @@ a {
     transition: all 0.2s ease;
 }
 
-.btn-custom:hover {
-    background-color: var(--color-beige);
-    border-color: var(--color-green);
-    color: var(--color-green);
+.btn-custom:hover,
+.btn-custom.active {
+    background-color: var(--color-salmon);
+    border-color: var(--color-salmon);
+    color: var(--color-beige);
 }
 
-.btn-custom.active {
-    background-color: var(--color-beige);
-    color: var(--color-green);
-    border-color: var(--color-green);
+#filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+#filter-buttons button {
+    max-width: fit-content;
 }
 
 /* Resume Section */
@@ -146,19 +158,6 @@ a {
 }
 
 /* Project Cards */
-.card-img-top {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-bottom: 2px solid var(--color-green);
-}
-
-.card-body {
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-}
-
 .project-card {
     height: 100%;
     transition: transform 0.2s, opacity 0.3s ease-in-out;
@@ -171,8 +170,20 @@ a {
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: scale(1.02);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--color-green);
+}
+
+.card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 }
 
 .btn-custom-project {
@@ -221,12 +232,9 @@ a {
     display: block;
 }
 
-.modal-header {
-    border-bottom: 1px solid var(--color-green);
-}
-
+.modal-header,
 .modal-footer {
-    border-top: 1px solid var(--color-green);
+    border-color: var(--color-green);
 }
 
 .modal-xl {
@@ -283,58 +291,43 @@ a {
         margin: 1rem 0;
         width: auto;
     }
-    
+
     .modal-xl {
         max-width: auto;
         margin: 0 auto;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding: 0 1rem;
     }
-    
+
     .modal-body {
         padding: 1rem;
     }
-    
+
     .modal-project-details {
         padding: 1rem 0 0 0;
     }
-        
+
     .card-body {
-        padding-top: 0; /* Remove padding above the title */
-    }
-
-    .title-tags-container {
-        margin-top: 0; /* Remove margin above the title */
-    }
-
-    /* Reduce padding in the modal body */
-    .modal-body {
         padding: 1rem;
     }
 
-    /* Stack columns vertically on mobile */
     .modal-body .row {
         flex-direction: column;
     }
 
-    /* Add spacing between columns on mobile */
     .modal-body .col-md-6 {
         margin-bottom: 1.5rem;
     }
 
-    /* Reduce font size for modal title on mobile */
     .modal-title {
         font-size: 1.25rem;
     }
 
-    /* Adjust button width on mobile */
     .btn-custom-links {
         width: 90%;
         margin-bottom: 0.5rem;
         background-color: var(--color-green);
         border-color: var(--color-green);
         color: var(--color-beige);
-        transition: all 0.2s ease;
     }
 
     .btn-custom-links:hover {
@@ -343,19 +336,15 @@ a {
         color: var(--color-green);
     }
 
-    .project-card .card-body {
-        padding: 1rem; /* Reduce padding on mobile */
-    }
-
     .project-card .card-title {
-        font-size: 1.1rem; /* Adjust title size for mobile */
+        font-size: 1.1rem;
     }
 
     .project-card .tags {
-        margin-bottom: 0.5rem; /* Reduce spacing below tags */
+        margin-bottom: 0.5rem;
     }
 
     .project-card .card-text {
-        font-size: 0.9rem; /* Adjust description size for mobile */
+        font-size: 0.9rem;
     }
 }
