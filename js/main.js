@@ -14,6 +14,12 @@ function createExperienceItem(experience, index) {
                     <div class="d-flex flex-column align-items-start">
                         <span class="fw-bold">${experience.title}</span>
                         <small class="text-muted">${experience.department}</small>
+                        <!-- "Active" badge for mobile (below text) -->
+                        ${experience.isActive ? '<span class="badge d-md-none mt-2">Present</span>' : ''}
+                    </div>
+                    <!-- "Active" badge for larger screens (next to arrow) -->
+                    <div class="ms-auto d-none d-md-block pe-2">
+                        ${experience.isActive ? '<span class="badge d-none d-md-inline-block ms-auto">Present</span>' : ''}
                     </div>
                 </button>
             </h2>

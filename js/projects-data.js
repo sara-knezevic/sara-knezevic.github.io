@@ -3,12 +3,14 @@ const projectsData = {
         {
             "id": "project1",
             "title": "Air Pollution Digital Image Filter",
-            "shortDescription": "A digital image filter that simulates the visual effects of air pollution on photographs at the user's location.",
+            "shortDescription": "A real-time image processing system that visualizes air pollution levels, making environmental data tangible through visual effects.",
             "fullDescription": "\
-                A web app developed to simulate the visual effects of air pollution on photographs.\
-                The app uses real-time image processing to apply pollution effects based on the user's location and pollution levels.\
-                Air pollution is retried from an online network of sensors Sensor Community.\
-                The app provides a visual representation of the impact of pollution on the environment and human health at moments where the air is not necessarily foggy and polluted.\
+                This project bridges the gap between abstract air quality data and visual understanding. Using Python and OpenCV, \
+                we developed image processing algorithms that translate real-time pollution data into visual effects. The system \
+                integrates with Sensor Community's network through a Flask backend, while Angular powers an accessible frontend \
+                interface. I implemented cloud-based processing on Google Cloud Platform to handle computational demands efficiently and at a low cost. \
+                The project makes invisible environmental threats visible, helping communities better understand their local air quality \
+                and its potential health impacts through a medium everyone can understand - photography.\
             ",
             "image": "assets/project1.jpg",
             "tags": ["Web", "Social impact"],
@@ -20,7 +22,7 @@ const projectsData = {
                 "Integration with Sensor Community API",
                 "Cloud-based image processing and storage"
             ],
-            "impact": "This project allows users to quickly check and visualize air pollution levels in their area, raising awareness about environmental issues.",
+            "impact": "This project allows users to quickly check and visualize air pollution levels in their area, raising awareness about air pollution.",
             "links": {
                 "github": "https://github.com/MokoshHub/air-pollution-filter-website",
                 "demo": "https://airpollution.mokosh.org/"
@@ -29,13 +31,15 @@ const projectsData = {
         {
             "id": "project2",
             "title": "Sustainable Development Goals Online Quiz",
-            "shortDescription": "An interactive online quiz platform focused on teaching users about UN's Sustainable Development Goals.",
+            "shortDescription": "An educational platform making UN's Sustainable Development Goals accessible through interactive learning.",
             "fullDescription": "\
-                An interactive educational platform designed to raise awareness about the UN's Sustainable Development Goals through an engaging quiz.\
-                The project was done in collaboration with Belgrade Open School and their SDGs for All initiative in Serbia.\
-                The quiz covers 6 goals and provides detailed explanations for each topic, as well as a point-based evaluation at the end, rating your existing knowledge on the subject.\
-                It's suitable for people of all ages and backgrounds who want to learn more about sustainable development.\
-                Art and design were done by the talented artist Isidora Maričić.\
+                Working with Belgrade Open School's SDGs for All initiative, I built this educational platform to make sustainable \
+                development concepts more approachable. Using Unity and C#, I implemented an adaptive scoring system that provides \
+                personalized feedback based on user responses. The platform breaks down complex sustainability topics into \
+                digestible sections, with each interaction designed to build understanding progressively. Collaborating with \
+                artist Isidora Maričić, I integrated custom artwork that makes abstract concepts more relatable. This project \
+                represents my commitment to using technology for education and social impact, particularly in areas crucial \
+                for our global future. The quiz is available in Serbian.\
             ",
             "image": "assets/project2.jpg",
             "tags": ["Game", "Social impact", "Web"],
@@ -56,10 +60,14 @@ const projectsData = {
         {
             "id": "project3",
             "title": "Connect-four AI Opponent",
-            "shortDescription": "Alpha-beta pruning algorithm playing Connect Four against a human on an Arduino based controller.",
+            "shortDescription": "A hands-on exploration of the Alpha-beta pruning algorithm through an interactive game with a custom hardware interface.",
             "fullDescription": "\
-                The classic Connect Four minmax alpha-beta pruning algorithm playing against a player who uses an arduino-based controllers with 4 buttons for each C4 column.\
-                The game is played on a 5x5 grid, and the algorithm is implemented from scratch in Python, while the interface is made with PyGame.\
+                This project combines theoretical AI concepts with practical hardware integration. I implemented the minimax \
+                algorithm with alpha-beta pruning in Python, optimizing it for real-time gameplay on a 5x5 grid. The custom \
+                Arduino controller, programmed in C++, creates a unique physical interface that makes playing the game more \
+                tangible. Using PyGame for visualization, I focused on making the AI's decision-making process transparent \
+                and educational. The project demonstrates how classical AI algorithms can be made more accessible and \
+                engaging through thoughtful hardware integration and interface design.\
             ",
             "image": "assets/project3.jpg",
             "tags": ["Game", "AI", "University project"],
@@ -79,10 +87,14 @@ const projectsData = {
         {
             "id": "project4",
             "title": "Autonomous Obstacle-Avoiding Robot",
-            "shortDescription": "A self-navigating robot that uses sensors to detect and avoid obstacles in real-time.",
+            "shortDescription": "An exploration of autonomous systems through sensor fusion and real-time decision making.",
             "fullDescription": "\
-                A self-navigating robot that an ultrasonic sensor to stop and turn when encountering obstacles.\
-                The robot is built to move only in the dark, and it uses a light sensor to detect light and stop when it's too bright.\
+                This robotics project explores low-level autonomous decision-making through sensor integration. Programming in C++ on \
+                Arduino, I implemented algorithms for processing ultrasonic sensor data for navigation and light sensor input \
+                for activation conditions. The custom 3D-printed chassis houses the sensor array and electronics, \
+                optimizing space while maintaining accessibility for modifications. Beyond the technical implementation, this \
+                project represents an exploration of how simple sensors and programming can create seemingly intelligent \
+                autonomous behavior.\
             ",
             "image": "assets/project4.jpg",
             "tags": ["Robotics", "University project"],
@@ -102,13 +114,15 @@ const projectsData = {
         {
             "id": "project5",
             "title": "Risky Decision Making Game",
-            "shortDescription": "An interactive game exploring risk assessment and decision-making processes in a virtual environment.",
+            "shortDescription": "A research tool examining how virtual environments influence risk assessment and decision-making patterns.",
             "fullDescription": "\
-                An interactive game designed to study decision-making processes in risky situations.\
-                The game is based on the idea of Prospect theory and provides a virtual environment to test and analyze decision patterns.\
-                Leading the player through a series of scenarios with different risk/reward ratios, the game aims to assess whether players take the same amount of risk in a virtual environment as in a paper-only survey study.\
-                This project was used to conduct an experiment as part of a research study at the Laboratory for Experimental Psychology at the University of Belgrade.\
-                Full research paper and results are available in a published conference paper (DOI: 10.15308/Sinteza-2024-96-102).\
+                Developed during my internship at the Laboratory for Experimental Psychology at the University of Belgrade, \
+                this project investigates decision-making in virtual environments. Using Unity and C#, I created scenarios \
+                that precisely mirror Prospect Theory parameters. The system uses MongoDB to capture detailed player \
+                decision data, which I analyze using custom Python scripts. This research tool has contributed to our \
+                understanding of how virtual environments affect risk assessment, with findings published in a peer-reviewed \
+                conference paper (DOI: 10.15308/Sinteza-2024-96-102). The project demonstrates how game development technologies \
+                can be applied to serious research, bridging entertainment and academic investigation.\
             ",
             "image": "assets/project5.jpg",
             "tags": ["Game", "Cognitive science"],
@@ -129,19 +143,21 @@ const projectsData = {
         {
             "id": "project6",
             "title": "Multiplayer Brick Breaker",
-            "shortDescription": "A modern local multiplayer version of the classic Brick Breaker game with real-time competition features.",
+            "shortDescription": "A modern reimagining of a classic game focusing on competitive social gameplay and procedural content.",
             "fullDescription": "\
-                A modern take on the classic Brick Breaker game, featuring real-time multiplayer functionality.\
-                The game allows players to compete against each other in real-time, with dynamic power-ups and 1-4 player game modes.\
-                All players can see each other's progress and compete for the highest score on the global leaderboard, while trying to break the same procedurally generated wall with blocks of different sizes.\
-                Different block types have different point values, and the game ends when all blocks are destroyed, or when all players lose their lives.\
-                Destroyed blocks randomly drop power-ups, which include extra lives, speed boosts, and extended paddle size.\
+                This Unity project explores how traditional single-player mechanics can be transformed into engaging \
+                multiplayer experiences. I implemented procedural generation algorithms for the block layouts, creating \
+                unique but balanced challenges for each session. The real-time multiplayer system supports 1-4 players, \
+                with consideration given to game balance and power-up distribution. The scoring system and \
+                leaderboard add a competitive element while encouraging repeated play. Through this project, I explored \
+                both the technical challenges of multiplayer game development and the social aspects of competitive \
+                gaming, creating an experience that brings players together through shared challenge and competition.\
             ",
             "image": "assets/project6.jpg",
             "tags": ["Game", "University project"],
             "technologies": ["Unity", "C#"],
             "features": [
-                "Real-time multiplayer functionality",
+                "Real-time local multiplayer functionality",
                 "Dynamic power-ups and block types",
                 "Leaderboard tracking",
                 "1-4 player game modes",

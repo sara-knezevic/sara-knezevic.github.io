@@ -59,7 +59,7 @@ function createProjectModal(project) {
                                     </div>
                                 </div>
                                 <!-- Description Column -->
-                                <div class="col-md-6">
+                                <div class="col-md-6 p-3 p-md-5">
                                     <h5 class="mb-3">Project Description:</h5>
                                     <p class="mb-4" style="text-align: justify;">${project.fullDescription}</p>
                                     <h5 class="mb-3">Key Features:</h5>
