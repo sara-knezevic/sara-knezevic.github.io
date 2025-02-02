@@ -24,6 +24,10 @@ a {
     color: var(--color-salmon);
 }
 
+.badge {
+    background-color: var(--color-salmon);
+}
+
 .container {
     max-width: 1200px;
 }
@@ -132,24 +136,63 @@ a {
     border-radius: 5px;
 }
 
+.accordion-item {
+    color: var(--color-text-dark);
+    text-align: left;
+}
+
+/* Custom styling for unordered lists */
+.accordion-body ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 5px; /* Adjust spacing to align with the text */
+}
+
+.accordion-body li {
+    position: relative;
+    padding-left: 15px; /* Space for the custom dash */
+    margin-bottom: 8px; /* Add some spacing between list items */
+}
+
+.accordion-body li::before {
+    content: "–"; /* Use a dash as the bullet point */
+    position: absolute;
+    left: 0;
+    color: var(--color-salmon); /* Dash color (you can change this) */
+    font-weight: bold; /* Make the dash slightly bolder */
+}
+
 /* Accordion Styles */
 .accordion-button {
     color: var(--color-text-dark);
+    position: relative;
+    overflow: hidden;
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: var(--color-light-green);
+    background-color: transparent;
     color: var(--color-text-dark);
-    box-shadow: none;
 }
 
 .accordion-button:focus {
     box-shadow: none;
-    border-color: rgba(0, 0, 0, 0.125);
+}
+
+.accordion-button::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--color-salmon);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
 }
 
 .accordion-button:not(.collapsed)::after {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233F403F'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+    transform: scaleX(1);
 }
 
 .accordion-button small {
@@ -288,6 +331,56 @@ a {
 .page-item.active .page-link {
     background-color: var(--color-light-green);
     border-color: var(--color-light-green);
+}
+
+.accordion {
+    /* padding left and right */
+    padding: 0 1rem;
+}
+
+.accordion-item {
+    position: relative;
+    padding-left: 15px; /* Space for the timeline */
+}
+
+.timeline {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.timeline-line {
+    width: 2px;
+    background-color: #ccc;
+    flex-grow: 1;
+    transition: height 0.3s ease;
+}
+
+.timeline-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-salmon);
+    border-radius: 50%;
+    margin: 5px 0;
+}
+
+.timeline-year {
+    position: absolute;
+    right: 25px; /* Adjust based on your layout */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem;
+    color: var(--color-beige);
+    white-space: nowrap;
+}
+
+.accordion-button:not(.collapsed) + .accordion-collapse .timeline-line {
+    height: 100%;
 }
 
 /* Media Queries */

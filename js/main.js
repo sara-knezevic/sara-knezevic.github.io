@@ -2,6 +2,11 @@
 function createExperienceItem(experience, index) {
     return `
         <div class="accordion-item">
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">${experience.endYear}</div>
+            </div>
             <h2 class="accordion-header" id="expHeading${index}">
                 <button class="accordion-button collapsed" type="button" 
                         data-bs-toggle="collapse" 
@@ -33,6 +38,11 @@ function createExperienceItem(experience, index) {
 function createEducationItem(education, index) {
     return `
         <div class="accordion-item">
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-dot"></div>
+                <div class="timeline-year">${education.endYear}</div>
+            </div>
             <h2 class="accordion-header" id="eduHeading${index}">
                 <button class="accordion-button collapsed" type="button" 
                         data-bs-toggle="collapse" 
@@ -41,11 +51,11 @@ function createEducationItem(education, index) {
                         <span class="fw-bold">${education.degree}</span>
                         <small class="text-muted">${education.department}</small>
                         <!-- "Active" badge for mobile (below text) -->
-                        ${education.isActive ? '<span class="badge bg-success d-md-none mt-2">Active</span>' : ''}
+                        ${education.isActive ? '<span class="badge d-md-none mt-2">Present</span>' : ''}
                     </div>
                     <!-- "Active" badge for larger screens (next to arrow) -->
                     <div class="ms-auto d-none d-md-block pe-2">
-                        ${education.isActive ? '<span class="badge bg-success d-none d-md-inline-block ms-auto">Active</span>' : ''}
+                        ${education.isActive ? '<span class="badge d-none d-md-inline-block ms-auto">Present</span>' : ''}
                     </div>
                 </button>
             </h2>
@@ -75,10 +85,8 @@ function createAdditionalItem(section, index) {
         descriptionHtml = `
             <ul>
                 ${section.content.map(item => `
-                    <li><strong>${item.title}</strong>
-                        <ul>
-                            ${item.details.map(detail => `<li>${detail}</li>`).join('')}
-                        </ul>
+                    <li><strong>${item.title}</strong><br>
+                        ${item.details.map(detail => `${detail}`).join('')}
                     </li>
                 `).join('')}
             </ul>`;
@@ -154,3 +162,26 @@ function populateSections() {
 }
 
 document.addEventListener('DOMContentLoaded', populateSections);
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all accordion buttons NOT inside #additionalAccordion
+    const accordionButtons = document.querySelectorAll('.accordion-button:not(#additionalAccordion .accordion-button)');
+    
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const collapseElement = document.querySelector(button.getAttribute('data-bs-target'));
+            
+            // Find the timeline line within the same accordion item
+            const timelineLine = button.closest('.accordion-item').querySelector('.timeline-line');
+            
+            if (collapseElement && timelineLine) {
+                if (collapseElement.classList.contains('show')) {
+                    timelineLine.style.height = '100%';
+                } else {
+                    timelineLine.style.height = '0';
+                }
+            } else {
+                console.error('Collapse element or timeline line not found!');
+            }
+        });
+    });
+});

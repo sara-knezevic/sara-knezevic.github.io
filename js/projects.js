@@ -61,13 +61,13 @@ function createProjectModal(project) {
                                 <!-- Description Column -->
                                 <div class="col-md-6">
                                     <h5 class="mb-3">Project Description:</h5>
-                                    <p class="mb-4">${project.fullDescription}</p>
+                                    <p class="mb-4" style="text-align: justify;">${project.fullDescription}</p>
                                     <h5 class="mb-3">Key Features:</h5>
-                                    <ul class="mb-4">
+                                    <ul class="mb-4" style="text-align: justify;">
                                         ${project.features.map(feature => `<li>${feature}</li>`).join('')}
                                     </ul>
                                     <h5 class="mb-3">Project Impact:</h5>
-                                    <p>${project.impact}</p>
+                                    <p style="text-align: justify;">${project.impact}</p>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
         button.type = 'button';
         button.className = 'btn btn-custom';
         button.setAttribute('data-filter', tag);
-        button.textContent = tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter
+        button.textContent = tag === 'ai' ? 'AI' : tag.charAt(0).toUpperCase() + tag.slice(1); // Capitalize first letter or keep "AI" in all caps
         filterButtonsContainer.appendChild(button);
     });
 

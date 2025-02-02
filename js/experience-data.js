@@ -6,10 +6,11 @@ const experienceData = {
         "organization": "Center for Brain & Cognition, Pompeu Fabra University",
         "location": "Barcelona, Spain",
         "period": "January 2024 - July 2024",
+        "endYear": "2024",
         "responsibilities": [
-          "Participated in biweekly lab seminars alongside PhD students and post-doctoral researchers, engaging in discussions on current research topics",
-          "Conducted master thesis research in computational neuroscience, applying methodologies learned in the lab",
-          "Presented a recently published paper at one of the lab seminars, facilitating a discussion on its implications and methodologies"
+          "Conducted research on fMRI data analysis in Python, focusing on brain state classification between sleep and wakefulness",
+          "Presented published papers at lab seminars, facilitating discussions on their methodologies and implications",
+          "Participated in biweekly journal clubs, discussing recent papers in the field of computational neuroscience"
         ]
       },
       {
@@ -18,9 +19,10 @@ const experienceData = {
         "organization": "Faculty of Philosophy, University of Belgrade",
         "location": "Belgrade, Serbia",
         "period": "April 2021 – May 2022",
+        "endYear": "2022",
         "responsibilities": [
-          "Developed a virtual environment using Unity to simulate high-risk decision-making scenarios for 77 participants, demonstrating the efficacy of simulations as a viable alternative to traditional text surveys",
-          "Assisted colleagues by creating JavaScript and PHP scripts to track participants' engagement with web-based surveys, providing researchers with additional behavioral data for comprehensive analysis"
+          "Developed a Unity-based virtual environment to simulate high-risk decision-making scenarios for 77 participants",
+          "Developed JavaScript and PHP scripts to track 5+ additional participant engagement metrics in web-based surveys"
         ]
       },
       {
@@ -29,9 +31,10 @@ const experienceData = {
         "organization": "Terracore Technologies",
         "location": "Belgrade, Serbia",
         "period": "April 2021 – June 2021",
+        "endYear": "2021",
         "responsibilities": [
-          "Independently designed and developed a full-stack online multiplayer word association game for 8 players, implementing robust networking, user authentication, and game logic",
-          "Engineered server-side performance optimizations for real-time gameplay, integrated UI assets, and successfully finished the product"
+          "Designed and developed a full-stack Unity-based online multiplayer word association game for up to 8 players",
+          "Optimized server-side performance for real-time gameplay and integrated UI assets for seamless gameplay"
         ]
       },
       {
@@ -40,6 +43,7 @@ const experienceData = {
         "organization": "Belgrade Open School",
         "location": "Belgrade, Serbia",
         "period": "December 2020 – March 2021",
+        "endYear": "2021",
         "responsibilities": [
           "Developed an automatic notification system using Python web scrapers to notify of changes and publications on governmental websites via email, saving time previously spent on manual checks",
           "Built and tested physical air quality measurement sensors using the NodeMCU single-board microcontroller and the SD5011 fine dust sensor, contributing to the worldwide open data Sensor Community network"
@@ -51,9 +55,11 @@ const experienceData = {
         "organization": "Stealth Startup",
         "location": "Belgrade, Serbia",
         "period": "April 2019 – March 2020",
+        "endYear": "2020",
         "responsibilities": [
-          "Designed, deployed, and maintained Python and Bash data acquisition systems, providing users with daily updated information and engineered data for analytics and machine learning",
-          "Developed personalized application experiences through data engineering and effectively communicated technical decisions within a small team"
+          "Built and maintained Python and Bash data acquisition systems, scraping 10+ websites and collecting 2+ GB of textual daily data using multithreading, delivering fresh data at the start of each day",
+          "Engineered personalized Android application experience and communicated technical decisions within a 4-person team",
+          "Developed a recommendation system using collaborative filtering in Python"
         ]
       }
     ]

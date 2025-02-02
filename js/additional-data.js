@@ -41,19 +41,16 @@ const additionalData = {
             "title": "Informal Education",
             "content": [
                 {
-                    "title": "BCI & Neurotechnology Spring School",
-                    "description": "by g.tec medical engineering GmbH. Learned about brain-computer interfaces, neurotechnology, signal processing, and bioengineering.",
-                    "period": "April 2023"
+                    "title": "BCI & Neurotechnology Spring School (April 2023)",
+                    "description": "by g.tec medical engineering GmbH. Learned about brain-computer interfaces, neurotechnology, signal processing, and bioengineering."
                 },
                 {
-                    "title": "Future Studies",
-                    "description": "at Belgrade Open School. Developed critical thinking, social awareness, and presentation skills.",
-                    "period": "October 2020 – September 2021"
+                    "title": "Future Studies (October 2020 – September 2021)",
+                    "description": "at Belgrade Open School. Developed critical thinking, social awareness, and presentation skills."
                 },
                 {
-                    "title": "Computer Science",
-                    "description": "at Petnica Science Center. Gained research, software development, and low-level programming skills.",
-                    "period": "September 2015 – September 2017, seasonal"
+                    "title": "Computer Science (September 2015 – September 2017)",
+                    "description": "at Petnica Science Center. Gained research, software development, and low-level programming skills."
                 }
             ]
         }
