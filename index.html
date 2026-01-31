@@ -1,153 +1,1017 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Sara Knežević</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Knežević - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --saffron: #F8C662;
+            --ultra-violet: #595082;
+            --dark-purple: #2C263F;
+            --hunter-green: #41644A;
+            --dark-green: #213722;
+            --cream: #f5f0e8;
+            --black: #1a1a1a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--black);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            transition: background-color 0.3s;
+        }
+
+        nav.scrolled {
+            background-color: rgba(44, 38, 63, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--ultra-violet), var(--saffron));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            background: var(--saffron);
+            color: var(--black);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(248, 198, 98, 0.4);
+        }
+
+        /* Star decoration */
+        .star {
+            position: absolute;
+            color: var(--saffron);
+            font-size: 2rem;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--dark-purple);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                repeating-linear-gradient(
+                    0deg,
+                    rgba(248, 198, 98, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(248, 198, 98, 0.03) 41px
+                ),
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(248, 198, 98, 0.03) 0px,
+                    transparent 1px,
+                    transparent 40px,
+                    rgba(248, 198, 98, 0.03) 41px
+                );
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            max-width: 1400px;
+            width: 100%;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .hero-image-bg {
+            background: var(--ultra-violet);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            mix-blend-mode: multiply;
+            opacity: 0.9;
+        }
+
+        .design-approach-box {
+            position: absolute;
+            bottom: -40px;
+            left: 20px;
+            background: rgba(65, 100, 74, 0.95);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            max-width: 280px;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .portfolio-text {
+            position: relative;
+        }
+
+        .portfolio-main {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            color: var(--cream);
+            line-height: 0.9;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .portfolio-outline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--saffron);
+            line-height: 1;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .social-handles {
+            margin-top: 2rem;
+            font-size: 1rem;
+            color: white;
+        }
+
+        .social-handles p {
+            margin: 0.5rem 0;
+        }
+
+        .scroll-down {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--saffron);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .scroll-down:hover {
+            transform: translateX(-50%) translateY(-5px);
+        }
+
+        /* About Section */
+        .about {
+            background: var(--cream);
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about-left h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .github-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: linear-gradient(135deg, var(--ultra-violet), var(--dark-purple));
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .github-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(89, 80, 130, 0.4);
+            color: white;
+        }
+
+        .about-right {
+            position: relative;
+        }
+
+        .about-image-wrapper {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .about-image-bg {
+            background: var(--hunter-green);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            display: block;
+            mix-blend-mode: luminosity;
+            opacity: 0.9;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--saffron);
+            color: var(--black);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            margin: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .contact-box {
+            background: var(--black);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .contact-box h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin: 1rem 0;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Resume Section */
+        .resume {
+            background: var(--dark-green);
+            padding: 6rem 4rem;
+            position: relative;
+        }
+
+        .resume-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(4rem, 8vw, 7rem);
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--saffron);
+            text-align: right;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            line-height: 0.9;
+        }
+
+        .resume-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .resume-column {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .section-box {
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .education-box {
+            background: var(--cream);
+        }
+
+        .experience-box {
+            background: var(--saffron);
+        }
+
+        .skills-box {
+            background: var(--black);
+            color: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin-bottom: 2rem;
+            color: var(--saffron);
+        }
+
+        .education-box .section-title,
+        .experience-box .section-title {
+            color: var(--black);
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--ultra-violet), var(--saffron));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-year {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-subtitle {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .skill-category h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--saffron);
+        }
+
+        .software-icons {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .software-icon {
+            background: white;
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            font-family: 'JetBrains Mono', monospace;
+            border: 2px solid var(--ultra-violet);
+            transition: all 0.3s;
+        }
+
+        .software-icon:hover {
+            background: var(--ultra-violet);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .skill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .skill-item {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .skill-item::before {
+            content: '>';
+            color: var(--saffron);
+            margin-right: 0.5rem;
+            font-weight: bold;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: rgba(248, 198, 98, 0.2);
+            border-color: var(--saffron);
+            transform: translateY(-2px);
+        }
+
+        .hobbies-section {
+            background: var(--cream);
+            padding: 4rem;
+            border-radius: 20px;
+            margin-top: 3rem;
+        }
+
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .hobby-item {
+            text-align: center;
+        }
+
+        .hobby-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .hobby-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--black);
+        }
+
+        .activities-section {
+            background: var(--cream);
+            padding: 3rem;
+            border-radius: 20px;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .resume-container {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a:not(.cta-button) {
+                display: none;
+            }
+
+            .hero, .about, .resume {
+                padding: 4rem 2rem;
+            }
+
+            .section-box {
+                padding: 2rem;
+            }
+
+            .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container">
-      <!-- Left side with name and socials -->
-      <div class="d-flex align-items-center">
-        <a class="navbar-brand me-4" href="index.html">Sara Knežević</a>
-        <!-- Social Media Icons -->
-        <div class="d-flex">
-          <a href="https://www.linkedin.com/in/sara-knezevic/" target="_blank" class="me-3 social-icon">
-            <i class="bi bi-linkedin fs-5"></i>
-          </a>
-          <a href="https://github.com/sara-knezevic" target="_blank" class="social-icon">
-            <i class="bi bi-github fs-5"></i>
-          </a>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="logo">
+            <div class="logo-icon"></div>
+            Sara Knežević
         </div>
-      </div>
-  
-      <!-- Mobile Toggle Button -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="line"></span> 
-              <span class="line"></span> 
-              <span class="line"></span>
-      </button>
-  
-      <!-- Navigation Items with divider -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <!-- Vertical divider visible only on desktop -->
-        <div class="vr d-none d-lg-block text-white mx-4"></div>
-        
-        <!-- Navigation Links -->
-        <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="projects.html">Projects</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="blog.html">Blog</a>
-          </li>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="https://github.com/sara-knezevic" target="_blank" class="cta-button">GitHub</a></li>
         </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Home Page Content -->
-  <div class="container my-5">
-    <div class="row mt-5 px-2">
-      <div class="col-md-4 d-flex flex-column justify-content-center">
-        <h3 class="text-center">Hello! I'm Sara.</h3>
-        <p class="text-center pt-2">
-          I'm a PhD student aiming to bridge computational neuroscience, machine learning, and software development.
-          With experience across academic labs, startups, and NGOs, I bring a unique perspective to complex technological challenges.
-          My work spans from brain-state classification using fMRI data to serious games development and data engineering.
-          I'm passionate about neurotechnology, gaming, and interdisciplinary projects that push innovation boundaries. <br><br>
-          Currently seeking opportunities with forward-thinking teams where cutting-edge technology meets meaningful impact.
-        </p>
-        <!-- Download Resume Button -->
-        <div class="text-center mt-2">
-          <a href="https://drive.google.com/file/d/15lnbzZIrvxop9pn4JQQZ_uzmJ82wINSJ/view?usp=sharing" class="btn btn-custom" target="_blank" download>Resume PDF</a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="star" style="top: 10%; left: 10%;">✦</div>
+        <div class="star" style="top: 15%; right: 15%;">✦</div>
+        <div class="star" style="bottom: 20%; left: 20%;">✦</div>
+        <div class="star" style="bottom: 25%; right: 10%;">✦</div>
+        
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-bg">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600'%3E%3Crect fill='%23595082' width='500' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white' opacity='0.3'%3EYour Photo%3C/text%3E%3C/svg%3E" alt="Profile" class="hero-image">
+                    </div>
+                    <div class="design-approach-box">
+                        // Bridging neuroscience & AI
+                        // Focus: Clean code, solid research
+                        // Goal: Understanding intelligence
+                        // Tools: Python, Unity, fMRI data
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="portfolio-text">
+                    <h1 class="portfolio-main">PORTFOLIO</h1>
+                    <div class="portfolio-outline">RESEARCH</div>
+                    <div class="portfolio-outline">CODE</div>
+                    <div class="portfolio-outline">SCIENCE</div>
+                    
+                    <div class="social-handles">
+                        <p><strong>GH:</strong> sara-knezevic</p>
+                        <p><strong>LI:</strong> sara-knezevic</p>
+                        <p><strong>Location:</strong> Belgrade, Serbia</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4 d-flex align-items-center justify-content-center">
-        <div class="img-container">
-          <img src="assets/sara.png" class="img-fluid" alt="Sara Knežević">
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="text-center">
-          <h3>Reach out!</h3>
-          <p><strong>E-mail:</strong>
-            <a href="mailto:lost.func@gmail.com">lost.func@gmail.com</a> <br>
-            Or send a message using the form below:
-          </p>
-        </div>
-        <form action="https://formsubmit.co/lost.func@gmail.com" method="POST"/>
-          <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" id="name" name="name" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" id="email" name="email" class="form-control" required>
-          </div>
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea id="message" name="message" class="form-control" rows="3" required></textarea>
-          </div>
-          <div class="text-center mt-4">
-            <button type="submit" class="btn btn-custom" target="_blank">Send me a message!</button>
-          </div>
-        </form>
-      </div>
-    </div>
+        
+        <a href="#about" class="scroll-down">
+            <span>Scroll</span>
+            <span>down</span>
+        </a>
+    </section>
 
-    <div class="resume-container my-5">
-      <div class="row mx-2 my-2">
-        <!-- Experience Section -->
-        <div class="col-md-6 mt-4">
-          <h2 class="text-center">Experience</h2>
-          <div class="accordion" id="experienceAccordion">
-            <!-- Filled out through main.js -->
-          </div>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-left">
+                <h2>Hello,<br>I'm Sara!</h2>
+                <p class="about-text">
+                    I am a PhD student in Intelligent Software Engineering with a Master's in Cognitive & Computational Neuroscience from Pompeu Fabra University. 
+                    My work bridges artificial intelligence, neuroscience, and software development, focusing on understanding intelligence through computational models 
+                    and data-driven research.
+                </p>
+                <a href="https://github.com/sara-knezevic" class="github-button" target="_blank">
+                    <span>⚡</span>
+                    github.com/sara-knezevic
+                </a>
+            </div>
+            <div class="about-right">
+                <div class="about-image-wrapper">
+                    <div class="about-image-bg">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600'%3E%3Crect fill='%2341644A' width='500' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white' opacity='0.3'%3EYour Photo%3C/text%3E%3C/svg%3E" alt="About" class="about-image">
+                    </div>
+                </div>
+                <div>
+                    <span class="badge">PhD Candidate</span>
+                    <span class="badge">Researcher</span>
+                </div>
+                <div class="contact-box" id="contact">
+                    <h3>Contact</h3>
+                    <div class="contact-info">
+                        <p>📍 Belgrade, Serbia</p>
+                        <p>🔗 <a href="https://www.linkedin.com/in/sara-knezevic/" target="_blank" style="color: var(--saffron); text-decoration: none;">LinkedIn</a></p>
+                        <p>💻 <a href="https://github.com/sara-knezevic" target="_blank" style="color: var(--saffron); text-decoration: none;">GitHub</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Education Section -->
-        <div class="col-md-6 mt-4">
-          <h2 class="text-center">Education</h2>
-          <div class="accordion" id="educationAccordion">
-            <!-- Filled out through main.js -->
+    <!-- Resume Section -->
+    <section class="resume" id="resume">
+        <h2 class="resume-heading">RESUME<br>RESUME</h2>
+        
+        <div class="resume-container">
+            <div class="resume-column">
+                <!-- Education -->
+                <div class="section-box education-box">
+                    <h3 class="section-title">Education</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024 - Present</div>
+                            <div class="timeline-title">PhD in Intelligent Software Engineering</div>
+                            <div class="timeline-subtitle">Singidunum University, Belgrade</div>
+                            <div class="timeline-description">Currently in second year of doctoral studies.</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-title">MSc Cognitive & Computational Neuroscience</div>
+                            <div class="timeline-subtitle">Pompeu Fabra University, Barcelona</div>
+                            <div class="timeline-description">Thesis: Brain state classification between N3 sleep and wakefulness using fMRI data</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2023</div>
+                            <div class="timeline-title">MSc Data Science</div>
+                            <div class="timeline-subtitle">Singidunum University, Belgrade</div>
+                            <div class="timeline-description">Thesis: Organelle segmentation using YOLOv8</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-title">BSc Software & Data Engineering</div>
+                            <div class="timeline-subtitle">Singidunum University, Belgrade</div>
+                            <div class="timeline-description">Thesis: Framing effects in decision-making in serious games</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="section-box experience-box">
+                    <h3 class="section-title">Experience</h3>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2024</div>
+                            <div class="timeline-title">Research Intern</div>
+                            <div class="timeline-subtitle">Computational Neuroscience Lab</div>
+                            <div class="timeline-description">Pompeu Fabra University, Barcelona<br>fMRI data analysis focusing on brain state classification</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021-2022</div>
+                            <div class="timeline-title">Research Intern</div>
+                            <div class="timeline-subtitle">Department of Psychology</div>
+                            <div class="timeline-description">University of Belgrade<br>Developed Unity-based virtual environments for decision-making research</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2021</div>
+                            <div class="timeline-title">Game Developer</div>
+                            <div class="timeline-subtitle">Terracore Technologies</div>
+                            <div class="timeline-description">Designed full-stack multiplayer word association game</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-year">2019-2020</div>
+                            <div class="timeline-title">Data Engineer</div>
+                            <div class="timeline-subtitle">Stealth Startup</div>
+                            <div class="timeline-description">Built data acquisition systems and recommendation algorithms</div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <div class="skill-tag">#Research</div>
+                        <div class="skill-tag">#MachineLearning</div>
+                        <div class="skill-tag">#GameDev</div>
+                        <div class="skill-tag">#DataScience</div>
+                    </div>
+                </div>
+
+                <!-- Awards & Publications -->
+                <div class="section-box activities-section">
+                    <h3 class="section-title">Awards & Publications</h3>
+                    
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">1st Place - g.tec BRA1N.IO Hackathon</div>
+                            <div class="timeline-description">Led team developing ECoG-based hand pose prediction algorithms</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Sinteza 2024 Publication</div>
+                            <div class="timeline-description">"Decision-Making in Serious Games vs. Traditional Surveys"<br>DOI: 10.15308/Sinteza-2024-96-102</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resume-column">
+                <!-- Technical Skills -->
+                <div class="section-box skills-box">
+                    <h3 class="section-title">Technical Skills</h3>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h4>Programming</h4>
+                            <div class="software-icons">
+                                <div class="software-icon">Python</div>
+                                <div class="software-icon">C#</div>
+                                <div class="software-icon">C++</div>
+                                <div class="software-icon">R</div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-category">
+                            <h4>Tools & Frameworks</h4>
+                            <div class="skill-list">
+                                <div class="skill-item">Unity</div>
+                                <div class="skill-item">TensorFlow / PyTorch</div>
+                                <div class="skill-item">OpenCV</div>
+                                <div class="skill-item">MongoDB</div>
+                                <div class="skill-item">Git</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skill-tags">
+                        <div class="skill-tag">Machine Learning</div>
+                        <div class="skill-tag">fMRI Analysis</div>
+                        <div class="skill-tag">Game Development</div>
+                        <div class="skill-tag">Data Engineering</div>
+                    </div>
+                </div>
+
+                <!-- Research Interests -->
+                <div class="section-box hobbies-section">
+                    <h3 class="section-title">Research Interests</h3>
+                    <div class="hobbies-grid">
+                        <div class="hobby-item">
+                            <div class="hobby-icon">🧠</div>
+                            <p class="hobby-name">Computational<br>Neuroscience</p>
+                        </div>
+                        <div class="hobby-item">
+                            <div class="hobby-icon">🤖</div>
+                            <p class="hobby-name">Machine<br>Learning</p>
+                        </div>
+                        <div class="hobby-item">
+                            <div class="hobby-icon">🎮</div>
+                            <p class="hobby-name">Serious<br>Games</p>
+                        </div>
+                        <div class="hobby-item">
+                            <div class="hobby-icon">📊</div>
+                            <p class="hobby-name">Data<br>Analysis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teaching -->
+                <div class="section-box activities-section">
+                    <h3 class="section-title">Teaching</h3>
+                    
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Instructor - Petnica Science Center</div>
+                            <div class="timeline-description">Data science fundamentals workshop for gifted high school students</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Teaching Assistant - Petnica</div>
+                            <div class="timeline-description">Mentored students in software simulations and data analysis</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        </div>
-      </div>
+    </section>
 
-      <!-- Awards, Teaching Experience, and Informal Education Section-->
-      <div class="row mx-2 my-2 mb-4">
-        <div class="col-12 mt-4">
-          <h2 class="text-center">Awards, Teaching, & Informal Education</h2>
-          <div class="accordion" id="additionalAccordion">
-            <!-- Filled out through main.js -->
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
 
-  <script src="js/education-data.js"></script>
-  <script src="js/experience-data.js"></script>
-  <script src="js/additional-data.js"></script>
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-  <script src="js/main.js"></script>
-  
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- jQuery, Popper.js -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+        // Add entrance animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-box, .timeline-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>

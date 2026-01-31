@@ -1,69 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - Sara Knežević</title>
-  
-  <!-- External Resources -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Sara Knežević</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --saffron: #F8C662;
+            --ultra-violet: #595082;
+            --dark-purple: #2C263F;
+            --hunter-green: #41644A;
+            --dark-green: #213722;
+            --cream: #f5f0e8;
+            --black: #1a1a1a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--black);
+            background: var(--cream);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark-purple);
+            padding: 1.5rem 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--ultra-violet), var(--saffron));
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            opacity: 0.7;
+        }
+
+        .cta-button {
+            background: var(--saffron);
+            color: var(--black);
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(248, 198, 98, 0.4);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-purple);
+        }
+
+        /* Filter Buttons */
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .filter-btn {
+            background: white;
+            color: var(--dark-purple);
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--ultra-violet);
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover {
+            background: var(--ultra-violet);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: var(--saffron);
+            border-color: var(--saffron);
+            color: var(--black);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(89, 80, 130, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: var(--ultra-violet);
+        }
+
+        .project-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-purple);
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--saffron);
+            color: var(--black);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-description {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .learn-more-btn {
+            background: var(--ultra-violet);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .learn-more-btn:hover {
+            background: var(--dark-purple);
+            transform: translateX(5px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            overflow-y: auto;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 1200px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            margin: 2rem;
+        }
+
+        .modal-header {
+            background: var(--dark-purple);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .close-btn {
+            background: var(--saffron);
+            color: var(--black);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section {
+            margin-bottom: 2rem;
+        }
+
+        .modal-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-purple);
+        }
+
+        .modal-section p,
+        .modal-section li {
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .modal-section ul {
+            padding-left: 1.5rem;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-tag {
+            background: var(--ultra-violet);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .modal-btn {
+            background: var(--saffron);
+            color: var(--black);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-btn:hover {
+            background: var(--ultra-violet);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modal-btn.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            nav {
+                padding: 1.5rem 2rem;
+            }
+
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links a:not(.cta-button) {
+                display: none;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container">
-      <div class="d-flex align-items-center">
-        <a class="navbar-brand me-4" href="index.html">Sara Knežević</a>
-        <div class="d-flex">
-          <a href="https://www.linkedin.com/in/sara-knezevic/" target="_blank" class="me-3 social-icon">
-            <i class="bi bi-linkedin fs-5"></i>
-          </a>
-          <a href="https://github.com/sara-knezevic" target="_blank" class="social-icon">
-            <i class="bi bi-github fs-5"></i>
-          </a>
-        </div>
-      </div>
-
-      <button class="navbar-toggler btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <div class="vr d-none d-lg-block text-white mx-4"></div>
-        <ul class="navbar-nav flex-grow-1">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html" class="logo">
+            <div class="logo-icon"></div>
+            Sara Knežević
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#resume">Resume</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="https://github.com/sara-knezevic" target="_blank" class="cta-button">GitHub</a></li>
         </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Main Content -->
-  <div class="container my-2 px-4"</div>
-    <h1 class="text-center mb-3">Projects</h1>
-    
-    <!-- Filter Buttons -->
-    <div class="d-flex justify-content-center mb-4">
-      <div class="btn-group" id="filter-buttons">
-        <button type="button" class="btn btn-custom active" data-filter="all">All</button>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Projects</h1>
         
-      </div>
+        <!-- Filter Buttons -->
+        <div class="filter-section" id="filterButtons">
+            <button class="filter-btn active" data-filter="all">All</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be populated here -->
+        </div>
     </div>
 
-    <!-- Projects Grid -->
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5 projects-grid justify-content-center">
-      <!-- Content populated through projects.js -->
-    </div>
-  </div>
+    <!-- Modal Container -->
+    <div id="modalContainer"></div>
 
-  <script src="js/projects-data.js"></script>
-  <script src="js/projects.js"></script>
+    <script>
+        const projectsData = {
+            "projects": [
+                {
+                    "id": "project1",
+                    "title": "Air Pollution Digital Image Filter",
+                    "shortDescription": "A real-time image processing system that visualizes air pollution levels, making environmental data tangible through visual effects.",
+                    "fullDescription": "This project bridges the gap between abstract air quality data and visual understanding. Using Python and OpenCV, we developed image processing algorithms that translate real-time pollution data into visual effects. The system integrates with Sensor Community's network through a Flask backend, while Angular powers an accessible frontend interface. I implemented cloud-based processing on Google Cloud Platform to handle computational demands efficiently and at a low cost. The project makes invisible environmental threats visible, helping communities better understand their local air quality and its potential health impacts through a medium everyone can understand - photography.",
+                    "image": "assets/project1.jpg",
+                    "tags": ["Web", "Social impact"],
+                    "technologies": ["Python", "OpenCV", "Angular", "Flask", "Google Cloud Platform"],
+                    "features": [
+                        "Real-time image processing based on pollution levels",
+                        "User location-based pollution data retrieval",
+                        "Interactive pollution effects visualization",
+                        "Integration with Sensor Community API",
+                        "Cloud-based image processing and storage"
+                    ],
+                    "impact": "This project allows users to quickly check and visualize air pollution levels in their area, raising awareness about air pollution.",
+                    "links": {
+                        "github": "https://github.com/MokoshHub/air-pollution-filter-website",
+                        "demo": "https://airpollution.mokosh.org/"
+                    }
+                },
+                {
+                    "id": "project2",
+                    "title": "Sustainable Development Goals Online Quiz",
+                    "shortDescription": "An educational platform making UN's Sustainable Development Goals accessible through interactive learning.",
+                    "fullDescription": "Working with Belgrade Open School's SDGs for All initiative, I built this educational platform to make sustainable development concepts more approachable. Using Unity and C#, I implemented an adaptive scoring system that provides personalized feedback based on user responses. The platform breaks down complex sustainability topics into digestible sections, with each interaction designed to build understanding progressively. Collaborating with artist Isidora Maričić, I integrated custom artwork that makes abstract concepts more relatable. This project represents my commitment to using technology for education and social impact, particularly in areas crucial for our global future. The quiz is available in Serbian.",
+                    "image": "assets/project2.jpg",
+                    "tags": ["Game", "Social impact", "Web"],
+                    "technologies": ["Unity", "C#"],
+                    "features": [
+                        "Interactive quiz on Sustainable Development Goals",
+                        "Detailed explanations and educational content",
+                        "Artistic design and engaging user interface",
+                        "Point-based evaluation system",
+                        "Suitable for all ages and backgrounds"
+                    ],
+                    "impact": "This project aims to educate and raise awareness about the importance of sustainable development and the UN's Sustainable Development Goals.",
+                    "links": {
+                        "github": "https://github.com/sara-knezevic/sdg_quiz",
+                        "demo": "https://sdgs4all.rs/bos-kviz/"
+                    }
+                },
+                {
+                    "id": "project3",
+                    "title": "Connect-four AI Opponent",
+                    "shortDescription": "A hands-on exploration of the Alpha-beta pruning algorithm through an interactive game with a custom hardware interface.",
+                    "fullDescription": "This project combines theoretical AI concepts with practical hardware integration. I implemented the minimax algorithm with alpha-beta pruning in Python, optimizing it for real-time gameplay on a 5x5 grid. The custom Arduino controller, programmed in C++, creates a unique physical interface that makes playing the game more tangible. Using PyGame for visualization, I focused on making the AI's decision-making process transparent and educational. The project demonstrates how classical AI algorithms can be made more accessible and engaging through thoughtful hardware integration and interface design.",
+                    "image": "assets/project3.jpg",
+                    "tags": ["Game", "AI", "University project"],
+                    "technologies": ["Python", "PyGame", "Arduino", "C++"],
+                    "features": [
+                        "Connect Four game with custom Arduino controller",
+                        "Alpha-beta pruning AI algorithm",
+                        "Real-time game analysis and move prediction",
+                        "Interactive game interface"
+                    ],
+                    "impact": "Highlighted university project in AI and game development, demonstrating the implementation of a classic algorithm in a real-world scenario.",
+                    "links": {
+                        "github": "https://github.com/sara-knezevic/arduino_connect4",
+                        "demo": "#"
+                    }
+                },
+                {
+                    "id": "project4",
+                    "title": "Autonomous Obstacle-Avoiding Robot",
+                    "shortDescription": "An exploration of autonomous systems through sensor fusion and real-time decision making.",
+                    "fullDescription": "This robotics project explores low-level autonomous decision-making through sensor integration. Programming in C++ on Arduino, I implemented algorithms for processing ultrasonic sensor data for navigation and light sensor input for activation conditions. The custom 3D-printed chassis houses the sensor array and electronics, optimizing space while maintaining accessibility for modifications. Beyond the technical implementation, this project represents an exploration of how simple sensors and programming can create seemingly intelligent autonomous behavior.",
+                    "image": "assets/project4.jpg",
+                    "tags": ["Robotics", "University project"],
+                    "technologies": ["Arduino", "C++", "Sensors", "3D Printing", "Electronics"],
+                    "features": [
+                        "Obstacle detection and avoidance",
+                        "Light sensor-based movement control",
+                        "Real-time sensor data processing",
+                        "Custom 3D printed robot design"
+                    ],
+                    "impact": "Highlighted university project in robotics and electronics, demonstrating practical applications of sensor-based navigation.",
+                    "links": {
+                        "github": "#",
+                        "demo": "#"
+                    }
+                },
+                {
+                    "id": "project5",
+                    "title": "Risky Decision Making Game",
+                    "shortDescription": "A research tool examining how virtual environments influence risk assessment and decision-making patterns.",
+                    "fullDescription": "Developed during my internship at the Laboratory for Experimental Psychology at the University of Belgrade, this project investigates decision-making in virtual environments. Using Unity and C#, I created scenarios that precisely mirror Prospect Theory parameters. The system uses MongoDB to capture detailed player decision data, which I analyze using custom Python scripts. This research tool has contributed to our understanding of how virtual environments affect risk assessment, with findings published in a peer-reviewed conference paper (DOI: 10.15308/Sinteza-2024-96-102). The project demonstrates how game development technologies can be applied to serious research, bridging entertainment and academic investigation.",
+                    "image": "assets/project5.jpg",
+                    "tags": ["Game", "Cognitive science"],
+                    "technologies": ["Unity", "C#", "MongoDB", "Python"],
+                    "features": [
+                        "Prospect theory-based decision-making scenarios",
+                        "Risk assessment and reward evaluation",
+                        "Real-time data collection and analysis",
+                        "Interactive game design",
+                        "Research study implementation"
+                    ],
+                    "impact": "Contributing to research in behavioral economics and decision-making psychology.",
+                    "links": {
+                        "github": "https://github.com/sara-knezevic/ProspectTheoryGame/tree/main",
+                        "demo": "https://youtu.be/rjT0oq33msQ"
+                    }
+                },
+                {
+                    "id": "project6",
+                    "title": "Multiplayer Brick Breaker",
+                    "shortDescription": "A modern reimagining of a classic game focusing on competitive social gameplay and procedural content.",
+                    "fullDescription": "This Unity project explores how traditional single-player mechanics can be transformed into engaging multiplayer experiences. I implemented procedural generation algorithms for the block layouts, creating unique but balanced challenges for each session. The real-time multiplayer system supports 1-4 players, with consideration given to game balance and power-up distribution. The scoring system and leaderboard add a competitive element while encouraging repeated play. Through this project, I explored both the technical challenges of multiplayer game development and the social aspects of competitive gaming, creating an experience that brings players together through shared challenge and competition.",
+                    "image": "assets/project6.jpg",
+                    "tags": ["Game", "University project"],
+                    "technologies": ["Unity", "C#"],
+                    "features": [
+                        "Real-time local multiplayer functionality",
+                        "Dynamic power-ups and block types",
+                        "Leaderboard tracking",
+                        "1-4 player game modes",
+                        "Procedurally generated block wall"
+                    ],
+                    "impact": "A fun and engaging multiplayer game that combines classic gameplay with modern features and real-time competition.",
+                    "links": {
+                        "github": "https://github.com/sara-knezevic/brickbreaker",
+                        "demo": "https://youtu.be/uxB26N6jOpQ"
+                    }
+                }
+            ]
+        };
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        // Get unique tags
+        const uniqueTags = new Set();
+        projectsData.projects.forEach(project => {
+            project.tags.forEach(tag => uniqueTags.add(tag.toLowerCase()));
+        });
+
+        // Populate filter buttons
+        const filterButtonsContainer = document.getElementById('filterButtons');
+        uniqueTags.forEach(tag => {
+            const button = document.createElement('button');
+            button.className = 'filter-btn';
+            button.setAttribute('data-filter', tag);
+            button.textContent = tag === 'ai' ? 'AI' : tag.charAt(0).toUpperCase() + tag.slice(1);
+            filterButtonsContainer.appendChild(button);
+        });
+
+        // Populate projects
+        function populateProjects() {
+            const projectsGrid = document.getElementById('projectsGrid');
+            const modalContainer = document.getElementById('modalContainer');
+            
+            projectsData.projects.forEach(project => {
+                // Create project card
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.setAttribute('data-tags', project.tags.map(t => t.toLowerCase()).join(','));
+                
+                card.innerHTML = `
+                    <img src="${project.image}" alt="${project.title}" class="project-image">
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <div class="project-tags">
+                            ${project.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                        </div>
+                        <p class="project-description">${project.shortDescription}</p>
+                        <button class="learn-more-btn" onclick="openModal('${project.id}')">Learn More →</button>
+                    </div>
+                `;
+                
+                projectsGrid.appendChild(card);
+                
+                // Create modal
+                const modal = document.createElement('div');
+                modal.className = 'modal';
+                modal.id = `modal-${project.id}`;
+                
+                modal.innerHTML = `
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">${project.title}</h2>
+                            <button class="close-btn" onclick="closeModal('${project.id}')">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-grid">
+                                <div>
+                                    <img src="${project.image}" alt="${project.title}" class="modal-image">
+                                    <div class="modal-section">
+                                        <h3>Technologies Used</h3>
+                                        <div class="tech-tags">
+                                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                                        </div>
+                                    </div>
+                                    <div class="modal-buttons">
+                                        <a href="${project.links.github}" class="modal-btn ${project.links.github === '#' ? 'disabled' : ''}" target="_blank">
+                                            GitHub →
+                                        </a>
+                                        <a href="${project.links.demo}" class="modal-btn ${project.links.demo === '#' ? 'disabled' : ''}" target="_blank">
+                                            Live Demo →
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="modal-section">
+                                        <h3>Project Description</h3>
+                                        <p>${project.fullDescription}</p>
+                                    </div>
+                                    <div class="modal-section">
+                                        <h3>Key Features</h3>
+                                        <ul>
+                                            ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                    <div class="modal-section">
+                                        <h3>Project Impact</h3>
+                                        <p>${project.impact}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                modalContainer.appendChild(modal);
+            });
+        }
+
+        // Filter functionality
+        function setupFilters() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectCards = document.querySelectorAll('.project-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+                    
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filter projects
+                    projectCards.forEach(card => {
+                        const tags = card.getAttribute('data-tags').split(',');
+                        
+                        if (filter === 'all' || tags.includes(filter)) {
+                            card.style.display = 'flex';
+                            setTimeout(() => card.style.opacity = '1', 100);
+                        } else {
+                            card.style.opacity = '0';
+                            setTimeout(() => card.style.display = 'none', 300);
+                        }
+                    });
+                });
+            });
+        }
+
+        // Modal functions
+        function openModal(projectId) {
+            const modal = document.getElementById(`modal-${projectId}`);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(projectId) {
+            const modal = document.getElementById(`modal-${projectId}`);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            populateProjects();
+            setupFilters();
+        });
+    </script>
 </body>
 </html>
