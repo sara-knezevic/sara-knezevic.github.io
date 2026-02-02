@@ -3,671 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sara Knežević - Portfolio</title>
+    <title>Sara Knežević Pavlović- Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;700&family=Libre+Baskerville:wght@400;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --saffron: #F8C662;
-            --ultra-violet: #595082;
-            --dark-purple: #2C263F;
-            --hunter-green: #41644A;
-            --dark-green: #213722;
-            --cream: #f5f0e8;
-            --black: #1a1a1a;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            color: var(--black);
-            overflow-x: hidden;
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1.5rem 4rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            transition: background-color 0.3s;
-        }
-
-        nav.scrolled {
-            background-color: rgba(44, 38, 63, 0.95);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-family: 'Libre Baskerville', serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: white;
-        }
-
-        .logo-icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--ultra-violet), var(--saffron));
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            align-items: center;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.7;
-        }
-
-        .cta-button {
-            background: var(--saffron);
-            color: var(--black);
-            padding: 0.7rem 1.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(248, 198, 98, 0.4);
-        }
-
-        /* Star decoration */
-        .star {
-            position: absolute;
-            color: var(--saffron);
-            font-size: 2rem;
-            animation: twinkle 2s ease-in-out infinite;
-        }
-
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(0.9); }
-        }
-
-        /* Hero Section */
-        .hero {
-            background: var(--dark-purple);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 2rem;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                repeating-linear-gradient(
-                    0deg,
-                    rgba(248, 198, 98, 0.03) 0px,
-                    transparent 1px,
-                    transparent 40px,
-                    rgba(248, 198, 98, 0.03) 41px
-                ),
-                repeating-linear-gradient(
-                    90deg,
-                    rgba(248, 198, 98, 0.03) 0px,
-                    transparent 1px,
-                    transparent 40px,
-                    rgba(248, 198, 98, 0.03) 41px
-                );
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            max-width: 1400px;
-            width: 100%;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-left {
-            position: relative;
-        }
-
-        .hero-image-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-        }
-
-        .hero-image-bg {
-            background: var(--ultra-violet);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .hero-image {
-            width: 100%;
-            display: block;
-            mix-blend-mode: multiply;
-            opacity: 0.9;
-        }
-
-        .design-approach-box {
-            position: absolute;
-            bottom: -40px;
-            left: 20px;
-            background: rgba(65, 100, 74, 0.95);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            max-width: 280px;
-            font-size: 0.85rem;
-            line-height: 1.6;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .hero-right {
-            position: relative;
-        }
-
-        .portfolio-text {
-            position: relative;
-        }
-
-        .portfolio-main {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 10vw, 8rem);
-            font-weight: 900;
-            color: var(--cream);
-            line-height: 0.9;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-        }
-
-        .portfolio-outline {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 8vw, 6rem);
-            font-weight: 900;
-            color: transparent;
-            -webkit-text-stroke: 2px var(--saffron);
-            line-height: 1;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .social-handles {
-            margin-top: 2rem;
-            font-size: 1rem;
-            color: white;
-        }
-
-        .social-handles p {
-            margin: 0.5rem 0;
-        }
-
-        .scroll-down {
-            position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--saffron);
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            color: var(--black);
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: transform 0.3s;
-            cursor: pointer;
-        }
-
-        .scroll-down:hover {
-            transform: translateX(-50%) translateY(-5px);
-        }
-
-        /* About Section */
-        .about {
-            background: var(--cream);
-            padding: 6rem 4rem;
-            position: relative;
-        }
-
-        .about-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 6rem;
-            align-items: start;
-        }
-
-        .about-left h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(3rem, 6vw, 5rem);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 2rem;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        .github-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: linear-gradient(135deg, var(--ultra-violet), var(--dark-purple));
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .github-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(89, 80, 130, 0.4);
-            color: white;
-        }
-
-        .about-right {
-            position: relative;
-        }
-
-        .about-image-wrapper {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-
-        .about-image-bg {
-            background: var(--hunter-green);
-            border-radius: 20px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .about-image {
-            width: 100%;
-            display: block;
-            mix-blend-mode: luminosity;
-            opacity: 0.9;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--saffron);
-            color: var(--black);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin: 0.5rem;
-            font-size: 0.95rem;
-        }
-
-        .contact-box {
-            background: var(--black);
-            color: white;
-            padding: 2rem;
-            border-radius: 20px;
-            margin-top: 2rem;
-        }
-
-        .contact-box h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-style: italic;
-        }
-
-        .contact-info p {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            margin: 1rem 0;
-            font-size: 1rem;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* Resume Section */
-        .resume {
-            background: var(--dark-green);
-            padding: 6rem 4rem;
-            position: relative;
-        }
-
-        .resume-heading {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(4rem, 8vw, 7rem);
-            font-weight: 900;
-            color: transparent;
-            -webkit-text-stroke: 2px var(--saffron);
-            text-align: right;
-            margin-bottom: 4rem;
-            text-transform: uppercase;
-            line-height: 0.9;
-        }
-
-        .resume-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-
-        .resume-column {
-            display: flex;
-            flex-direction: column;
-            gap: 3rem;
-        }
-
-        .section-box {
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .education-box {
-            background: var(--cream);
-        }
-
-        .experience-box {
-            background: var(--saffron);
-        }
-
-        .skills-box {
-            background: var(--black);
-            color: white;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            margin-bottom: 2rem;
-            color: var(--saffron);
-        }
-
-        .education-box .section-title,
-        .experience-box .section-title {
-            color: var(--black);
-        }
-
-        .timeline-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .timeline-icon {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--ultra-violet), var(--saffron));
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            flex-shrink: 0;
-            margin-top: 0.2rem;
-        }
-
-        .timeline-content {
-            flex: 1;
-        }
-
-        .timeline-year {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 0.3rem;
-        }
-
-        .timeline-subtitle {
-            font-size: 0.95rem;
-            opacity: 0.8;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-description {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .skill-category h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--saffron);
-        }
-
-        .software-icons {
-            display: flex;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-            margin-bottom: 1rem;
-        }
-
-        .software-icon {
-            background: white;
-            color: var(--black);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            font-family: 'JetBrains Mono', monospace;
-            border: 2px solid var(--ultra-violet);
-            transition: all 0.3s;
-        }
-
-        .software-icon:hover {
-            background: var(--ultra-violet);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .skill-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-
-        .skill-item {
-            font-size: 0.95rem;
-            opacity: 0.9;
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        .skill-item::before {
-            content: '>';
-            color: var(--saffron);
-            margin-right: 0.5rem;
-            font-weight: bold;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            margin-top: 1.5rem;
-        }
-
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            padding: 0.6rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            font-family: 'JetBrains Mono', monospace;
-            transition: all 0.3s;
-        }
-
-        .skill-tag:hover {
-            background: rgba(248, 198, 98, 0.2);
-            border-color: var(--saffron);
-            transform: translateY(-2px);
-        }
-
-        .hobbies-section {
-            background: var(--cream);
-            padding: 4rem;
-            border-radius: 20px;
-            margin-top: 3rem;
-        }
-
-        .hobbies-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .hobby-item {
-            text-align: center;
-        }
-
-        .hobby-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 1rem;
-            font-size: 2rem;
-        }
-
-        .hobby-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            color: var(--black);
-        }
-
-        .activities-section {
-            background: var(--cream);
-            padding: 3rem;
-            border-radius: 20px;
-        }
-
-        .activity-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            nav {
-                padding: 1.5rem 2rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .resume-container {
-                grid-template-columns: 1fr;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hobbies-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                gap: 1rem;
-            }
-
-            .nav-links a:not(.cta-button) {
-                display: none;
-            }
-
-            .hero, .about, .resume {
-                padding: 4rem 2rem;
-            }
-
-            .section-box {
-                padding: 2rem;
-            }
-
-            .hobbies-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Navigation -->
     <nav id="nav">
         <div class="logo">
             <div class="logo-icon"></div>
-            Sara Knežević
+            Sara Knežević Pavlović
         </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
@@ -688,21 +35,20 @@
             <div class="hero-left">
                 <div class="hero-image-wrapper">
                     <div class="hero-image-bg">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600'%3E%3Crect fill='%23595082' width='500' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white' opacity='0.3'%3EYour Photo%3C/text%3E%3C/svg%3E" alt="Profile" class="hero-image">
+                        <img src="assets/sara.png" alt="Profile" class="hero-image">
                     </div>
                     <div class="design-approach-box">
-                        // Bridging neuroscience & AI
-                        // Focus: Clean code, solid research
-                        // Goal: Understanding intelligence
-                        // Tools: Python, Unity, fMRI data
+                        // Bridging neuroscience & AI<br>
+                        // Focus: Clean code, solid research<br>
+                        // Tools: Whatever gets the job done<br>
                     </div>
                 </div>
             </div>
             <div class="hero-right">
                 <div class="portfolio-text">
                     <h1 class="portfolio-main">PORTFOLIO</h1>
-                    <div class="portfolio-outline">RESEARCH</div>
                     <div class="portfolio-outline">CODE</div>
+                    <div class="portfolio-outline">RESEARCH</div>
                     <div class="portfolio-outline">SCIENCE</div>
                     
                     <div class="social-handles">
@@ -713,11 +59,6 @@
                 </div>
             </div>
         </div>
-        
-        <a href="#about" class="scroll-down">
-            <span>Scroll</span>
-            <span>down</span>
-        </a>
     </section>
 
     <!-- About Section -->
@@ -730,20 +71,25 @@
                     My work bridges artificial intelligence, neuroscience, and software development, focusing on understanding intelligence through computational models 
                     and data-driven research.
                 </p>
-                <a href="https://github.com/sara-knezevic" class="github-button" target="_blank">
-                    <span>⚡</span>
-                    github.com/sara-knezevic
-                </a>
+                <div class="about-buttons">
+                    <a href="https://drive.google.com/file/d/15lnbzZIrvxop9pn4JQQZ_uzmJ82wINSJ/view?usp=sharing" class="resume-pdf-button" target="_blank">
+                        <span>⚡</span>
+                        Resume PDF
+                    </a>
+                    <a href="#resume" class="resume-button" target="_blank">
+                        <span>⚡</span>
+                        Resume
+                    </a>
+                    <a href="projects.html" class="resume-button" target="_blank">
+                        <span>⚡</span>
+                        Projects
+                    </a>
+                </div>
             </div>
             <div class="about-right">
-                <div class="about-image-wrapper">
-                    <div class="about-image-bg">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='600'%3E%3Crect fill='%2341644A' width='500' height='600'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='white' opacity='0.3'%3EYour Photo%3C/text%3E%3C/svg%3E" alt="About" class="about-image">
-                    </div>
-                </div>
                 <div>
                     <span class="badge">PhD Candidate</span>
-                    <span class="badge">Researcher</span>
+                    <span class="badge">Software Engineer</span>
                 </div>
                 <div class="contact-box" id="contact">
                     <h3>Contact</h3>
@@ -759,7 +105,7 @@
 
     <!-- Resume Section -->
     <section class="resume" id="resume">
-        <h2 class="resume-heading">RESUME<br>RESUME</h2>
+        <h2 class="resume-heading">RESUME</h2>
         
         <div class="resume-container">
             <div class="resume-column">
@@ -851,34 +197,6 @@
                             <div class="timeline-description">Built data acquisition systems and recommendation algorithms</div>
                         </div>
                     </div>
-
-                    <div class="skill-tags">
-                        <div class="skill-tag">#Research</div>
-                        <div class="skill-tag">#MachineLearning</div>
-                        <div class="skill-tag">#GameDev</div>
-                        <div class="skill-tag">#DataScience</div>
-                    </div>
-                </div>
-
-                <!-- Awards & Publications -->
-                <div class="section-box activities-section">
-                    <h3 class="section-title">Awards & Publications</h3>
-                    
-                    <div class="activity-item">
-                        <div class="timeline-icon"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">1st Place - g.tec BRA1N.IO Hackathon</div>
-                            <div class="timeline-description">Led team developing ECoG-based hand pose prediction algorithms</div>
-                        </div>
-                    </div>
-
-                    <div class="activity-item">
-                        <div class="timeline-icon"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-title">Sinteza 2024 Publication</div>
-                            <div class="timeline-description">"Decision-Making in Serious Games vs. Traditional Surveys"<br>DOI: 10.15308/Sinteza-2024-96-102</div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -909,13 +227,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="skill-tags">
-                        <div class="skill-tag">Machine Learning</div>
-                        <div class="skill-tag">fMRI Analysis</div>
-                        <div class="skill-tag">Game Development</div>
-                        <div class="skill-tag">Data Engineering</div>
-                    </div>
                 </div>
 
                 <!-- Research Interests -->
@@ -932,11 +243,32 @@
                         </div>
                         <div class="hobby-item">
                             <div class="hobby-icon">🎮</div>
-                            <p class="hobby-name">Serious<br>Games</p>
+                            <p class="hobby-name">Game<br>Development</p>
                         </div>
                         <div class="hobby-item">
                             <div class="hobby-icon">📊</div>
-                            <p class="hobby-name">Data<br>Analysis</p>
+                            <p class="hobby-name">Data<br>Science</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Awards & Publications -->
+                <div class="section-box activities-section">
+                    <h3 class="section-title">Awards & Publications</h3>
+                    
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">1st Place - g.tec BRA1N.IO Hackathon</div>
+                            <div class="timeline-description">Led team developing ECoG-based hand pose prediction algorithms</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="timeline-icon"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-title">Sinteza 2024 Publication</div>
+                            <div class="timeline-description">"Decision-Making in Serious Games vs. Traditional Surveys"<br>DOI: 10.15308/Sinteza-2024-96-102</div>
                         </div>
                     </div>
                 </div>
