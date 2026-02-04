@@ -168,8 +168,8 @@ nav.scrolled {
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
-    margin: 0.5rem;
     font-size: 0.95rem;
+    width: fit-content;
 }
 
 /* ===========================================
@@ -311,31 +311,6 @@ nav.scrolled {
     margin: 0.5rem 0;
 }
 
-.scroll-down {
-    position: absolute;
-    bottom: 3rem;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--saffron);
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    color: var(--black);
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: transform 0.3s;
-    cursor: pointer;
-}
-
-.scroll-down:hover {
-    transform: translateX(-50%) translateY(-5px);
-}
-
 /* ===========================================
    8. ABOUT SECTION
    =========================================== */
@@ -348,10 +323,13 @@ nav.scrolled {
 .about-container {
     max-width: 1400px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 6rem;
-    align-items: start;
+}
+
+.about-heading {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 
 .about-left h2 {
@@ -359,7 +337,13 @@ nav.scrolled {
     font-size: clamp(1rem, 6vw, 3rem);
     font-weight: 900;
     line-height: 1.1;
-    margin-bottom: 2rem;
+    margin: 0;
+}
+
+.badges {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .about-text {
@@ -369,40 +353,12 @@ nav.scrolled {
     color: #333;
 }
 
-.about-right {
-    position: relative;
-}
-
 .about-buttons {
     display: flex;
     align-items: center;
     gap: 2.5rem;
     flex-wrap: wrap;
     justify-content: flex-start;
-}
-
-.contact-box {
-    background: var(--black);
-    color: white;
-    padding: 2rem;
-    border-radius: 20px;
-    margin-top: 2rem;
-}
-
-.contact-box h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    font-style: italic;
-}
-
-.contact-info p {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    margin: 1rem 0;
-    font-size: 1rem;
-    font-family: 'JetBrains Mono', monospace;
 }
 
 /* ===========================================
@@ -506,9 +462,15 @@ nav.scrolled {
 }
 
 .timeline-subtitle {
-    font-size: 0.95rem;
-    opacity: 0.8;
-    margin-bottom: 0.5rem;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    padding: 0.4rem 1rem;
+    background: linear-gradient(135deg, var(--ultra-violet), var(--dark-purple));
+    color: white;
+    border-radius: 50px;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .timeline-description {
@@ -520,7 +482,7 @@ nav.scrolled {
 /* Skills */
 .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -555,25 +517,6 @@ nav.scrolled {
     background: var(--ultra-violet);
     color: white;
     transform: translateY(-2px);
-}
-
-.skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-}
-
-.skill-item {
-    font-size: 0.95rem;
-    opacity: 0.9;
-    font-family: 'JetBrains Mono', monospace;
-}
-
-.skill-item::before {
-    content: '>';
-    color: var(--saffron);
-    margin-right: 0.5rem;
-    font-weight: bold;
 }
 
 /* Hobbies */
@@ -936,17 +879,12 @@ nav.scrolled {
         gap: 3rem;
     }
 
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
     .resume-container {
         grid-template-columns: 1fr;
     }
 
     .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .hobbies-grid {
@@ -981,6 +919,10 @@ nav.scrolled {
     }
 
     .hobbies-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
         grid-template-columns: 1fr;
     }
 
