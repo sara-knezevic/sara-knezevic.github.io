@@ -333,10 +333,10 @@
             const modal = document.getElementById(`modal-${projectId}`);
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
-            // Scroll modal to top
-            modal.scrollTop = 0;
+            // Scroll modal and its content to top
+            modal.scrollTo(0, 0);
             const modalContent = modal.querySelector('.modal-content');
-            if (modalContent) modalContent.scrollTop = 0;
+            if (modalContent) modalContent.scrollTo(0, 0);
         }
 
         function closeModal(projectId) {

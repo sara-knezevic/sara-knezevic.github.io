@@ -756,8 +756,9 @@ nav.scrolled {
 
 .modal.active {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
+    padding: 2rem 0;
 }
 
 .modal-content {
