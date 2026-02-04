@@ -411,6 +411,9 @@ nav.scrolled {
     margin-bottom: 4rem;
     text-transform: uppercase;
     line-height: 0.9;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .resume-container {
@@ -514,7 +517,7 @@ nav.scrolled {
 /* Skills */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -927,10 +930,6 @@ nav.scrolled {
 
     .resume-container {
         grid-template-columns: 1fr;
-    }
-
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
     }
 
     .hobbies-grid {
